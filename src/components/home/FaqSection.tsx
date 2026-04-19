@@ -1,0 +1,19 @@
+import React from "react";
+import { SectionHeading } from "../ui/SectionHeading";
+import { FAQItem } from "./HomeItems";
+
+export const FaqSection = () => (
+  <section className="py-24 bg-white">
+    <div className="max-w-4xl mx-auto px-6">
+      <SectionHeading 
+        title="Frequently Asked Questions" 
+        subtitle="Support" 
+      />
+      <div className="mt-12 space-y-4">
+        <FAQItem question="What industries do you work with?" answer="We specialize in Fintech, Healthcare, E-commerce, and SaaS, but our experts can adapt to any industry." />
+        <FAQItem question="How long does a typical project take?" answer="A standard web project takes 4-8 weeks, while complex platforms may take 3-6 months." />
+        <FAQItem question="Do you offer ongoing maintenance?" answer="Yes, we provide 24/7 maintenance and support packages tailored to your needs." />
+      </div>
+    </div>
+  </section>
+);

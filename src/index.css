@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7C3AED;
+  --color-secondary: #4F46E5;
+  --color-accent: #22D3EE;
+  --color-bg-light: #F5F3FF;
+  --color-text-dark: #1E1B4B;
+  
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-light text-text-dark font-sans selection:bg-primary/30 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-[12px] border border-white/40 shadow-[0_20px_40px_rgba(30,27,75,0.05)];
+  }
+  
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-[12px] border border-white/10 shadow-xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary via-secondary to-accent;
+  }
+
+  .hero-tag {
+    @apply inline-block px-3.5 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider mb-5;
+  }
+
+  .card-p { @apply border-b-4 border-primary; }
+  .card-s { @apply border-b-4 border-secondary; }
+  .card-a { @apply border-b-4 border-accent; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  .animate-marquee-slow {
+    animation: marquee 60s linear infinite;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
