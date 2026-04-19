@@ -17,6 +17,7 @@ import { GlobalPresence } from "../components/home/GlobalPresence";
 import { AssociatesMarquee } from "../components/home/AssociatesMarquee";
 import { StatsSection } from "../components/home/StatsSection";
 import { CtaSection } from "../components/home/CtaSection";
+import { Contact } from "./Contact";
 
 export const Home = () => {
   return (
@@ -38,8 +39,7 @@ export const Home = () => {
       <BlogSection />
       <CareersSection />
       <TestimonialsSection />
-      <GlobalPresence />
-     
+<Contact/>     
       <CtaSection />
     </div>
   );

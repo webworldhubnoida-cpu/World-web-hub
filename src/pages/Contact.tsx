@@ -33,8 +33,8 @@ export const Contact = () => {
             <ContactInfo 
               Icon={MapPin} 
               title="Visit Us" 
-              detail="123 Tech Avenue, Silicon Valley, CA" 
-              subtitle="Book an appointment for personal demo."
+              detail="Web World Hub, Aligarh, UP" 
+              subtitle="Near Exhibition Ground, Aligarh, Uttar Pradesh 202001"
             />
 
             <div className="pt-8">
@@ -97,20 +97,29 @@ export const Contact = () => {
           </div>
         </div>
 
-        {/* Map Placeholder */}
-        <div className="mt-24 h-96 glass rounded-full overflow-hidden relative shadow-2xl">
-           <img 
-              src="https://picsum.photos/seed/map/1200/400" 
-              alt="Map" 
-              className="w-full h-full object-cover grayscale opacity-50"
-              referrerPolicy="no-referrer"
-           />
-           <div className="absolute inset-0 flex items-center justify-center">
-              <div className="glass p-8 rounded-3xl text-center max-w-sm">
-                 <MapPin className="text-primary w-12 h-12 mx-auto mb-4" />
-                 <h4 className="text-xl font-bold mb-2">Our Silicon Valley HQ</h4>
-                 <p className="text-sm text-text-dark/60 leading-relaxed font-medium">123 Tech Avenue, Silicon Valley, CA 94025, United States</p>
-                 <Button variant="outline" size="sm" className="mt-6">Open in Google Maps</Button>
+        {/* Google Map Section */}
+        <div className="mt-24 h-[500px] glass rounded-[2.5rem] overflow-hidden relative shadow-2xl border-8 border-white">
+           <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3522.6186414761014!2d78.083290715028!3d27.929495282692015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a52b6591e75d%3A0xbfaad3289a529a98!2sWeb%20World%20Hub%20Aligarh!5e0!3m2!1sen!2sin!4v1713512345678!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+           ></iframe>
+           <div className="absolute bottom-8 left-8 pointer-events-none">
+              <div className="glass p-6 rounded-3xl shadow-xl border border-white/20">
+                 <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 gradient-bg rounded-2xl flex items-center justify-center text-white">
+                       <MapPin size={24} />
+                    </div>
+                    <div>
+                       <h4 className="text-lg font-bold">Aligarh Office</h4>
+                       <p className="text-sm text-text-dark/60 font-medium">Near Exhibition Ground, Aligarh</p>
+                    </div>
+                 </div>
               </div>
            </div>
         </div>
