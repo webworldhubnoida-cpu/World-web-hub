@@ -1,7 +1,18 @@
 import React from "react";
+import { motion } from "motion/react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { ProjectCard } from "./HomeCards";
 import { Button } from "../ui/Button";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 export const Portfolio = () => (
   <section className="py-24 bg-white/30">
@@ -10,7 +21,13 @@ export const Portfolio = () => (
         title="Featured Projects" 
         subtitle="Our Portfolio" 
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         <ProjectCard 
           image="https://picsum.photos/seed/fintech/800/600"
           title="Nova Bank"
@@ -26,7 +43,7 @@ export const Portfolio = () => (
           title="Vital Care"
           category="Healthcare"
         />
-      </div>
+      </motion.div>
       <div className="text-center mt-12">
         <Button variant="outline">View All Projects</Button>
       </div>

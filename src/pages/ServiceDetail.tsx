@@ -94,7 +94,7 @@ export const ServiceDetail = () => {
                 <div className="glass gradient-bg p-10 rounded-[40px] text-white">
                   <h3 className="text-2xl font-bold mb-4">Start Your Project</h3>
                   <p className="text-white/80 mb-8 font-medium">Ready to transform your business with our {service.title.toLowerCase()}?</p>
-                  <Button className="w-full bg-white text-primary hover:bg-white/90 h-14 text-lg font-bold">
+                  <Button variant="white" className="w-full h-14 text-lg font-bold">
                     {service.ctaText}
                   </Button>
                 </div>

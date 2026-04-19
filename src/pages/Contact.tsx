@@ -21,20 +21,23 @@ export const Contact = () => {
             <ContactInfo 
               Icon={Mail} 
               title="Email Us" 
-              detail="hello@worldwebhub.com" 
+              detail="Info@webworldhub.in
+Info@webworldhub.co.in 
+Info@webworldhub.com
+Webworldhub@gmail.com" 
               subtitle="Our team typically responds in 2 hours."
             />
             <ContactInfo 
               Icon={Phone} 
               title="Call Us" 
-              detail="+1 (555) 000-1111" 
+              detail="+91 9971001036 " 
               subtitle="Mon-Fri from 9am to 6pm PST."
             />
             <ContactInfo 
               Icon={MapPin} 
               title="Visit Us" 
               detail="Web World Hub, Aligarh, UP" 
-              subtitle="Near Exhibition Ground, Aligarh, Uttar Pradesh 202001"
+              subtitle="House No. 4/1089 HAMDARD NAGAR (B NEAR CHAD MASJID JAMALPUR KOIL, Aligarh, Uttar Pradesh 202001"
             />
 
             <div className="pt-8">
@@ -107,7 +110,7 @@ export const Contact = () => {
               allowFullScreen={true} 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full "
            ></iframe>
            <div className="absolute bottom-8 left-8 pointer-events-none">
               <div className="glass p-6 rounded-3xl shadow-xl border border-white/20">
@@ -117,7 +120,7 @@ export const Contact = () => {
                     </div>
                     <div>
                        <h4 className="text-lg font-bold">Aligarh Office</h4>
-                       <p className="text-sm text-text-dark/60 font-medium">Near Exhibition Ground, Aligarh</p>
+                       <p className="text-sm text-text-dark/60 font-medium">NHouse No. 4/1089 HAMDARD NAGAR (B NEAR CHAD MASJID JAMALPUR KOIL, Aligarh, Uttar Pradesh 202001</p>
                     </div>
                  </div>
               </div>

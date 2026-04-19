@@ -29,34 +29,45 @@ import { Associates } from "./pages/Associates";
 import { ServiceDetail } from "./pages/ServiceDetail";
 import { BranchDetail } from "./pages/BranchDetail";
 
+import { motion, AnimatePresence } from "motion/react";
+
 export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-bg-light">
+      <div className="flex flex-col min-h-screen bg-bg-light overflow-x-hidden">
         <ScrollProgressBar />
         <Navbar />
         
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/service/:id" element={<ServiceDetail />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/tech-stack" element={<TechStack />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/clients" element={<Clients />} />
-            <Route path="/branches" element={<Branches />} />
-            <Route path="/branch/:id" element={<BranchDetail />} />
-            <Route path="/associates" element={<Associates />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/service/:id" element={<ServiceDetail />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/tech-stack" element={<TechStack />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/clients" element={<Clients />} />
+                <Route path="/branches" element={<Branches />} />
+                <Route path="/branch/:id" element={<BranchDetail />} />
+                <Route path="/associates" element={<Associates />} />
+              </Routes>
+            </motion.div>
+          </AnimatePresence>
         </main>
 
         <Footer />

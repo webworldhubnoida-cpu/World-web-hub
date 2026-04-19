@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "white";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
@@ -23,6 +23,7 @@ export const Button = ({
     secondary: "bg-white text-primary border-2 border-primary hover:bg-primary/5 rounded-[16px]",
     outline: "border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-[16px]",
     ghost: "bg-transparent text-primary hover:bg-primary/10 rounded-[12px]",
+    white: "bg-white text-primary hover:bg-white/90 shadow-xl rounded-[16px]",
   };
 
   const sizes = {

@@ -1,7 +1,18 @@
 import React from "react";
+import { motion } from "motion/react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { AboutCard } from "./HomeCards";
 import { Target, Eye, Heart } from "lucide-react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 export const AboutHighlights = () => (
   <section className="py-24 bg-bg-light">
@@ -10,7 +21,13 @@ export const AboutHighlights = () => (
         title="Vision, Mission & Our Core Values" 
         subtitle="The World Web Hub Ethos" 
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+      >
         <AboutCard 
           Icon={Target}
           title="Our Mission"
@@ -26,7 +43,7 @@ export const AboutHighlights = () => (
           title="Our Values"
           desc="Integrity, innovation, and inclusivity define our culture. We build with passion and support with dedication."
         />
-      </div>
+      </motion.div>
     </div>
   </section>
 );

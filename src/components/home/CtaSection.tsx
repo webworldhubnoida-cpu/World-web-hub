@@ -17,7 +17,7 @@ export const CtaSection = () => (
             Join hundreds of successful companies already using our solutions to grow their digital presence.
           </p>
           <div className="flex justify-center gap-4">
-            <Button className="bg-white text-primary hover:bg-white/90">
+            <Button variant="white">
               Book a Consultation
             </Button>
             <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary">

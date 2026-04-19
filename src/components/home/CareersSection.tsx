@@ -9,7 +9,7 @@ export const CareersSection = () => (
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Global Team</h2>
           <p className="text-lg text-white/80 max-w-xl">We're always looking for talented individuals to help us build the next generation of digital solutions.</p>
         </div>
-        <Button className="bg-white text-primary hover:bg-white/90 whitespace-nowrap">View Openings</Button>
+        <Button variant="white" className="whitespace-nowrap">View Openings</Button>
       </div>
     </div>
   </section>

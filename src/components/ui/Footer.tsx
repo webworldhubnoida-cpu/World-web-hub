@@ -50,9 +50,12 @@ export const Footer = () => {
         <div>
           <h4 className="text-lg font-bold mb-6">Contact Us</h4>
           <ul className="space-y-4 text-white/60">
-            <li>123 Tech Avenue, Silicon Valley, CA</li>
-            <li>contact@worldwebhub.com</li>
-            <li>+1 (555) 000-1111</li>
+            <li>House No. 4/1089 HAMDARD NAGAR (B NEAR CHAD MASJID JAMALPUR KOIL, Aligarh, Uttar Pradesh 202001</li>
+            <li>Info@webworldhub.in
+Info@webworldhub.co.in 
+Info@webworldhub.com
+Webworldhub@gmail.com</li>
+            <li>+91 9971001036 </li>
           </ul>
           <div className="mt-8">
             <h5 className="font-semibold mb-4">Subscribe to Newsletter</h5>

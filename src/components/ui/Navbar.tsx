@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "./Button";
 import { TopHeader } from "./TopHeader";
 
@@ -39,14 +39,16 @@ export const Navbar = () => {
           scrolled ? "bg-bg-light/80 backdrop-blur-xl border-b border-primary/10 shadow-sm" : "bg-transparent py-2"
         }`}
       >
-      <div className="max-w-7xl mx-auto w-full px-6 h-[70px] flex items-center justify-between">
+      <div className="max-w-7xl mx-auto w-full px-6 h-[85px] flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group shrink-0">
-          <div className="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform">
-            <Globe size={24} />
+          <div className="h-50 w-auto flex items-center justify-center transition-transform group-hover:scale-105">
+            <img 
+              src="/gallery/logo.png" 
+              alt="World Web Hub" 
+              className="h-full w-auto object-contain rounded-lg"
+            />
           </div>
-          <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary hidden sm:block">
-            World Web <span className="text-text-dark">Hub</span>
-          </span>
+         
         </Link>
 
         {/* Desktop Menu */}

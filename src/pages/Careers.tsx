@@ -104,7 +104,7 @@ export const Careers = () => {
                  <p className="text-lg text-white/80 leading-relaxed mb-8">
                     Are you a student or recent graduate looking to dive into the world of tech? Our internship programs offer real-world experience, mentorship, and a path to full-time roles.
                  </p>
-                 <Button className="bg-white text-primary hover:bg-white/90">View Internships</Button>
+                 <Button variant="white">View Internships</Button>
               </div>
               <div className="w-full md:w-1/3">
                  <div className="glass p-8 rounded-3xl text-center">

@@ -1,7 +1,18 @@
 import React from "react";
+import { motion } from "motion/react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { ServiceCard } from "./HomeCards";
 import { services } from "../../constants/services";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 export const ServicesPreview = () => (
   <section className="py-24 bg-white/30">
@@ -10,7 +21,13 @@ export const ServicesPreview = () => (
         title="Our Specialized IT Services" 
         subtitle="Digital Expertise" 
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         {services.map((service) => (
           <ServiceCard 
             key={service.id}
@@ -20,7 +37,7 @@ export const ServicesPreview = () => (
             desc={service.shortDesc}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );

@@ -10,10 +10,10 @@ export interface TeamMemberType {
 
 export const teamMembers: TeamMemberType[] = [
   {
-    id: "vikash-solanki",
+    id: "Vikas-solankey",
     name: "Vikash Solanki",
     role: "Founder & CEO",
-    image: "https://picsum.photos/seed/vikash/400/500",
+    image: "https://tse2.mm.bing.net/th/id/OIP.gsyQ3mOZUDzO-uPAszi-JwHaIq?w=700&h=819&rs=1&pid=ImgDetMain&o=7&rm=3",
     linkedin: "#",
   },
   {
@@ -48,7 +48,7 @@ export const teamMembers: TeamMemberType[] = [
     id: "mohd-shamshad",
     name: "Mohd Shamshad",
     role: "Operations Manager",
-    image: "https://picsum.photos/seed/shamshad/400/500",
+    image: "https://i.pinimg.com/236x/c3/33/27/c333273fcfc3198e93df380c0cfc0437.jpg",
     linkedin: "#",
   },
   {
