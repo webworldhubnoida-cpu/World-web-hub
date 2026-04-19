@@ -78,19 +78,19 @@ export const TestimonialCard = ({ quote, author, role, image }: { quote: string;
   </Card>
 );
 
-export const AssociateCard = ({ name, domain }: { name: string; domain: string; key?: string | number }) => (
+export const AssociateCard = ({ name, image }: { name: string; image: string; key?: string | number }) => (
   <Card className="flex items-center gap-4 min-w-[280px] hover:border-primary/50 transition-all cursor-default select-none py-4 px-6">
     <div className="w-12 h-12 rounded-xl overflow-hidden bg-white shadow-sm flex items-center justify-center border border-primary/5 shrink-0">
       <img
-        src={`https://picsum.photos/seed/${name}/100/100`}
+        src={image}
         alt={name}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain p-2"
         referrerPolicy="no-referrer"
       />
     </div>
     <div className="flex flex-col">
       <h4 className="font-bold text-text-dark tracking-tight">{name}</h4>
-      <p className="text-[10px] text-text-dark/40 uppercase font-black tracking-widest leading-none mt-1">{domain}</p>
+      <p className="text-[10px] text-text-dark/40 uppercase font-black tracking-widest leading-none mt-1">Verified Partner</p>
     </div>
   </Card>
 );
@@ -109,7 +109,7 @@ export const TimelineItem = ({ year, title, desc }: { year: string; title: strin
 export const TeamMember = ({ image, name, role }: { image: string; name: string; role: string }) => (
   <Card className="group text-center">
     <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl">
-      <img src={image} alt={name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" referrerPolicy="no-referrer" />
+      <img src={image} alt={name} className="w-full h-full object-cover transition-all" referrerPolicy="no-referrer" />
     </div>
     <h4 className="text-lg font-bold">{name}</h4>
     <p className="text-sm text-text-dark/60 font-medium">{role}</p>

@@ -4,27 +4,27 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { AssociateCard } from "./HomeItems";
 
 const associates = [
-  { name: "GoDaddy", domain: "godaddy.com" },
-  { name: "Resellerclub", domain: "resellerclub.com" },
-  { name: "Google My Business", domain: "google.com" },
-  { name: "Hostinger", domain: "hostinger.com" },
-  { name: "Neonet", domain: "neonet.no" },
-  { name: "Google Ads", domain: "ads.google.com" },
-  { name: "Google", domain: "google.com" },
-  { name: "Google AdSense", domain: "google.com" },
-  { name: "Facebook", domain: "facebook.com" },
-  { name: "Twitter", domain: "twitter.com" },
-  { name: "Instagram", domain: "instagram.com" },
-  { name: "Youtube", domain: "youtube.com" },
-  { name: "LinkedIn", domain: "linkedin.com" },
-  { name: "Pinterest", domain: "pinterest.com" },
-  { name: "Just Dial", domain: "justdial.com" },
-  { name: "IndiaMart", domain: "indiamart.com" },
-  { name: "Trade India", domain: "tradeindia.com" },
-  { name: "ExporterIndia", domain: "exporterindia.com" },
-  { name: "Sulekha", domain: "sulekha.com" },
-  { name: "Yellow Page", domain: "yellowpages.com" },
-  { name: "Alibaba", domain: "alibaba.com" },
+  { name: "GoDaddy", image: "https://logo.clearbit.com/godaddy.com" },
+  { name: "Resellerclub", image: "https://logo.clearbit.com/resellerclub.com" },
+  { name: "Google My Business", image: "https://logo.clearbit.com/google.com" },
+  { name: "Hostinger", image: "https://logo.clearbit.com/hostinger.com" },
+  { name: "Neonet", image: "https://logo.clearbit.com/neonet.no" },
+  { name: "Google Ads", image: "https://logo.clearbit.com/ads.google.com" },
+  { name: "Google", image: "https://logo.clearbit.com/google.com" },
+  { name: "Google AdSense", image: "https://logo.clearbit.com/google.com" },
+  { name: "Facebook", image: "https://logo.clearbit.com/facebook.com" },
+  { name: "Twitter", image: "https://logo.clearbit.com/twitter.com" },
+  { name: "Instagram", image: "https://logo.clearbit.com/instagram.com" },
+  { name: "Youtube", image: "https://logo.clearbit.com/youtube.com" },
+  { name: "LinkedIn", image: "https://logo.clearbit.com/linkedin.com" },
+  { name: "Pinterest", image: "https://logo.clearbit.com/pinterest.com" },
+  { name: "Just Dial", image: "https://logo.clearbit.com/justdial.com" },
+  { name: "IndiaMart", image: "https://logo.clearbit.com/indiamart.com" },
+  { name: "Trade India", image: "https://logo.clearbit.com/tradeindia.com" },
+  { name: "ExporterIndia", image: "https://logo.clearbit.com/exporterindia.com" },
+  { name: "Sulekha", image: "https://logo.clearbit.com/sulekha.com" },
+  { name: "Yellow Page", image: "https://logo.clearbit.com/yellowpages.com" },
+  { name: "Alibaba", image: "https://logo.clearbit.com/alibaba.com" },
 ];
 
 export const AssociatesMarquee = () => (
@@ -49,7 +49,7 @@ export const AssociatesMarquee = () => (
         className="flex gap-8 whitespace-nowrap py-4"
       >
         {[...associates, ...associates].map((item, idx) => (
-          <AssociateCard key={`${item.name}-${idx}`} name={item.name} domain={item.domain} />
+          <AssociateCard key={`${item.name}-${idx}`} name={item.name} image={item.image} />
         ))}
       </motion.div>
     </div>
