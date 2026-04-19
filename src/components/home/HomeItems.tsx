@@ -56,13 +56,24 @@ export const BlogCard = ({ image, title, date }: { image: string; title: string;
 );
 
 export const TestimonialCard = ({ quote, author, role, image }: { quote: string; author: string; role: string; image?: string }) => (
-  <Card className="relative p-8 h-full min-w-[350px] md:min-w-[450px] flex flex-col justify-between group hover:border-primary/50 transition-all duration-500">
-    <div className="absolute top-6 right-8 text-primary/10">
-      <Layout size={60} />
+  <Card className="relative p-10 w-[320px] min-h-[500px] h-auto flex flex-col justify-between group hover:border-primary/50 transition-all duration-500 bg-white/80 backdrop-blur-sm whitespace-normal">
+    <div className="absolute top-8 right-10 text-primary/10 group-hover:text-primary/20 transition-colors">
+      <Layout size={80} />
     </div>
-    <p className="relative z-10 text-lg font-medium text-text-dark italic mb-8 leading-relaxed">"{quote}"</p>
-    <div className="flex items-center gap-4">
-      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+    
+    <div className="relative z-10 mb-8">
+      <div className="flex gap-1 mb-6">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span key={star} className="text-yellow-400 text-sm">★</span>
+        ))}
+      </div>
+      <p className="text-lg font-medium text-text-dark italic leading-relaxed">
+        "{quote}"
+      </p>
+    </div>
+
+    <div className="relative z-10 flex flex-col items-center text-center mt-auto pt-8 border-t border-primary/5">
+      <div className="w-20 h-20 rounded-2xl overflow-hidden border-4 border-white shadow-xl mb-4 group-hover:scale-110 transition-transform duration-500">
         <img 
           src={image || `https://picsum.photos/seed/${author}/100/100`} 
           alt={author} 
@@ -70,9 +81,9 @@ export const TestimonialCard = ({ quote, author, role, image }: { quote: string;
           referrerPolicy="no-referrer"
         />
       </div>
-      <div>
-        <h4 className="font-black text-text-dark">{author}</h4>
-        <p className="text-xs text-text-dark/50 font-black uppercase tracking-widest">{role}</p>
+      <div className="w-full">
+        <h4 className="font-black text-text-dark text-lg break-words px-2">{author}</h4>
+        <p className="text-xs text-primary font-black uppercase tracking-widest mt-1 break-words px-2">{role}</p>
       </div>
     </div>
   </Card>

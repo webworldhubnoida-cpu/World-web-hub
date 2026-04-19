@@ -4,7 +4,7 @@ import { Button } from "../ui/Button";
 
 const heroSlides = [
   {
-    image: "https://wallpaperaccess.com/full/5673719.jpg",
+    image: "/gallery/b5.jpg",
     title: "Building Scalable",
     highlight: "Digital Solutions",
     tag: "IT Solutions Provider",
@@ -13,7 +13,7 @@ const heroSlides = [
     accentColor: "text-primary"
   },
   {
-    image: "https://img.freepik.com/premium-photo/digital-retail-dreamscape-augmented-reality-bliss_462685-3015.jpg",
+    image: "/gallery/b2.jpg",
     title: "Designing Future",
     highlight: "Brand Experiences",
     tag: "Creative Agency",
@@ -22,7 +22,7 @@ const heroSlides = [
     accentColor: "text-accent"
   },
   {
-    image: "https://wallpaperbat.com/img/134453002-robust-cloud-security-strategy-in-2024.jpg",
+    image: "/gallery/b6.jpg",
     title: "Modern Robust",
     highlight: "Cloud Architecture",
     tag: "Cloud Experts",
@@ -47,22 +47,23 @@ export const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className={`relative min-h-screen flex items-center pt-24 lg:pt-32 transition-colors duration-1000 ${slide.bgClass}`}>
-      <div className="absolute inset-0 z-0 opacity-100">
+    <section className="relative w-full h-[calc(100vh-110px)] lg:h-[calc(100vh-135px)] overflow-hidden bg-text-dark mt-[110px] lg:mt-[135px]">
+      {/* Background Slides */}
+      <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.image}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
             className="absolute inset-0"
           >
             <img 
@@ -71,53 +72,71 @@ export const Hero = () => {
               alt="background"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-bg-light/80 via-transparent to-bg-light" />
+            {/* Professional Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-text-dark via-text-dark/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-text-dark/80 via-transparent to-transparent opacity-60" />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-        <div className="relative min-h-[400px] flex flex-col justify-center items-center">
+      <div className="max-w-7xl mx-auto px-6 h-full relative z-10 flex flex-col justify-center">
+        <div className="max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex flex-col items-center"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 30 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="flex flex-col items-start"
             >
-              <span className={`inline-block px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm shadow-sm text-xs font-black tracking-widest uppercase mb-6 ${slide.accentColor}`}>
+              <motion.span 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs font-bold tracking-widest uppercase mb-8 text-white`}
+              >
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 {slide.tag}
-              </span>
-              <h1 className={`text-5xl md:text-[80px] leading-[1.1] mb-6 ${slide.fontClass} text-text-dark max-w-4xl`}>
+              </motion.span>
+
+              <h1 className={`text-6xl md:text-[85px] leading-[0.95] mb-8 font-black text-white tracking-tighter`}>
                 {slide.title}<br />
-                <span className={`bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary`}>
-                  {slide.highlight}
-                </span>
+                <span className="text-primary italic">{slide.highlight}</span>
               </h1>
-              <p className="text-xl text-text-dark/70 max-w-[700px] leading-relaxed mb-10 font-medium">
-                We empower businesses with cutting-edge software development, cloud infrastructure, and modern design thinking.
+
+              <p className="text-xl text-white/70 max-w-xl leading-relaxed mb-12 font-medium">
+                Elevating your digital presence through world-class engineering, strategic design, and innovative cloud solutions.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button size="lg" className="px-12 h-16 translate-y-0 hover:-translate-y-1 transition-transform shadow-xl">
-                  Start a Project
+
+              <div className="flex flex-wrap gap-6 items-center">
+                <Button size="lg" className="px-10 h-16 rounded-full text-lg shadow-2xl shadow-primary/30">
+                  Start Your Journey
                 </Button>
-                <Button variant="outline" size="lg" className="px-12 h-16 translate-y-0 hover:-translate-y-1 transition-transform bg-white/50 backdrop-blur-sm">
-                  Our Portfolio
-                </Button>
+                <button className="flex items-center gap-3 text-white font-bold group">
+                  <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-text-dark transition-all duration-300">
+                    <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-current border-b-[6px] border-b-transparent ml-1" />
+                  </div>
+                  <span className="border-b border-white/30 group-hover:border-white transition-colors pb-1">Watch Showreel</span>
+                </button>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Slide Indicators */}
-        <div className="mt-20 flex gap-3">
+        {/* Professional Navigation Indicators */}
+        <div className="absolute bottom-12 left-6 flex flex-col gap-4">
           {heroSlides.map((_, i) => (
-            <div 
+            <button 
               key={i}
-              className={`h-1.5 rounded-full transition-all duration-500 ${currentSlide === i ? "w-16 bg-primary" : "w-4 bg-primary/20"}`}
-            />
+              onClick={() => setCurrentSlide(i)}
+              className="group flex items-center gap-4 text-left"
+            >
+              <div className={`h-[2px] transition-all duration-500 ${currentSlide === i ? "w-12 bg-primary" : "w-6 bg-white/20 group-hover:bg-white/40"}`} />
+              <span className={`text-[10px] font-black uppercase tracking-widest transition-all ${currentSlide === i ? "text-white opacity-100" : "text-white/30 opacity-0 group-hover:opacity-100"}`}>
+                0{i + 1}
+              </span>
+            </button>
           ))}
         </div>
       </div>

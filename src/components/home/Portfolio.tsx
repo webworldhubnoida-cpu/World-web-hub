@@ -15,8 +15,17 @@ const containerVariants = {
 };
 
 export const Portfolio = () => (
-  <section className="py-24 bg-white/30">
-    <div className="max-w-7xl mx-auto px-6">
+  <section 
+    className="relative py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
+    style={{ 
+      backgroundImage: "url('/gallery/b1.jpg')",
+      backgroundAttachment: "fixed"
+    }}
+  >
+    {/* Overlay for better readability */}
+    <div className="absolute inset-0 bg-white/90 z-0" />
+
+    <div className="max-w-7xl mx-auto px-6 relative z-10">
       <SectionHeading 
         title="Featured Projects" 
         subtitle="Our Portfolio" 

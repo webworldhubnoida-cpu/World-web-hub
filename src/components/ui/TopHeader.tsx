@@ -11,9 +11,9 @@ import {
   MessageCircle as Skype 
 } from "lucide-react";
 
-export const TopHeader = () => {
+export const TopHeader = ({ scrolled }: { scrolled?: boolean }) => {
   return (
-    <div className="bg-text-dark text-white/80 py-2 border-b border-white/5 hidden lg:block">
+    <div className="bg-text-dark text-white/80 py-2 border-b border-white/5 hidden lg:block transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center text-[10px] uppercase font-black tracking-widest">
         <div className="flex flex-wrap gap-x-6 gap-y-2 items-center">
           <a href="tel:+919971001036" className="flex items-center gap-2 hover:text-primary transition-colors">

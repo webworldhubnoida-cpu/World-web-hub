@@ -6,8 +6,17 @@ import { Button } from "../components/ui/Button";
 
 export const Contact = () => {
   return (
-    <div className="pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <div 
+      className="relative pt-32 pb-24 bg-cover bg-center bg-no-repeat"
+      style={{ 
+        backgroundImage: "url('/gallery/b9.jpg')",
+        backgroundAttachment: "fixed"
+      }}
+    >
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-white/90 z-0" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <SectionHeading 
           title="Let's Start a Conversation" 
           subtitle="Contact Us" 
