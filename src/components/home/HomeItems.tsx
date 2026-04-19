@@ -79,18 +79,18 @@ export const TestimonialCard = ({ quote, author, role, image }: { quote: string;
 );
 
 export const AssociateCard = ({ name, image }: { name: string; image: string; key?: string | number }) => (
-  <Card className="flex items-center gap-4 min-w-[280px] hover:border-primary/50 transition-all cursor-default select-none py-4 px-6">
-    <div className="w-12 h-12 rounded-xl overflow-hidden bg-white shadow-sm flex items-center justify-center border border-primary/5 shrink-0">
+  <Card className="flex flex-col items-center gap-3 min-w-[200px] hover:border-primary/50 transition-all cursor-default select-none py-6 px-4 text-center">
+    <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center border border-primary/5 shrink-0 mb-2">
       <img
         src={image}
         alt={name}
-        className="w-full h-full object-contain p-2"
+        className="w-full h-full object-contain p-3"
         referrerPolicy="no-referrer"
       />
     </div>
-    <div className="flex flex-col">
-      <h4 className="font-bold text-text-dark tracking-tight">{name}</h4>
-      <p className="text-[10px] text-text-dark/40 uppercase font-black tracking-widest leading-none mt-1">Verified Partner</p>
+    <div className="flex flex-col items-center">
+      <h4 className="font-bold text-text-dark tracking-tight text-sm">{name}</h4>
+      <p className="text-[9px] text-text-dark/40 uppercase font-black tracking-widest leading-none mt-1.5">Verified Partner</p>
     </div>
   </Card>
 );
