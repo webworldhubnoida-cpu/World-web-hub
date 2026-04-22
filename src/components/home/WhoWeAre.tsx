@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Activity, Zap, ArrowRight, Globe } from "lucide-react";
 import { Button } from "../ui/Button";
+import { Parallax } from "../ui/Parallax";
 
 const listContainerVariants = {
   hidden: { opacity: 0 },
@@ -24,8 +25,7 @@ export const WhoWeAre = () => (
   <section 
     className="relative min-h-screen flex items-center py-16 overflow-hidden bg-cover bg-center bg-no-repeat"
     style={{ 
-      backgroundImage: "url('/gallery/b8.jpg')",
-      backgroundAttachment: "fixed"
+      backgroundImage: "url('/gallery/b8.jpg')"
     }}
   >
     {/* Overlay for better readability */}
@@ -117,7 +117,7 @@ export const WhoWeAre = () => (
             transition={{ delay: 0.8 }}
             className="mt-10 flex items-center gap-6"
           >
-            <Button className="px-8 h-12 text-base">Contact Us Now</Button>
+            <Button className="px-8 h-12 text-base" href="tel:+919971001036">Contact Us Now</Button>
             <div className="hidden md:flex -space-x-4">
               {[1, 2, 3, 4].map((i) => (
                 <motion.img 
@@ -127,8 +127,11 @@ export const WhoWeAre = () => (
                   viewport={{ once: true }}
                   transition={{ delay: 1 + (i * 0.1) }}
                   src={`https://picsum.photos/seed/user${i}/100/100`} 
+                  width="40"
+                  height="40"
                   className="w-10 h-10 rounded-full border-4 border-white shadow-lg" 
                   alt="User" 
+                  loading="lazy"
                 />
               ))}
               <motion.div 
@@ -144,53 +147,57 @@ export const WhoWeAre = () => (
           </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, x: 50 }}
-          whileInView={{ opacity: 1, scale: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="relative hidden lg:block"
-        >
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.5 }}
-            className="relative z-10 rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(124,58,237,0.3)] border-4 border-white max-w-[500px] mx-auto"
+        <Parallax offset={40} className="relative hidden lg:block">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              className="relative z-10 rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(124,58,237,0.3)] border-4 border-white max-w-[500px] mx-auto"
+            >
             <img
               src="/gallery/who we are.jpeg"
               alt="Digital Solutions"
+              width="500"
+              height="600"
               className="w-full h-auto object-cover"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
+            </motion.div>
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.2, 1],
+                rotate: [0, 5, 0]
+              }}
+              transition={{ duration: 8, repeat: Infinity }}
+              className="absolute -top-10 -right-10 w-48 h-48 bg-primary/10 blur-[60px] rounded-full z-0" 
+            />
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.1, 1],
+                rotate: [0, -5, 0]
+              }}
+              transition={{ duration: 10, repeat: Infinity }}
+              className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent/20 blur-[60px] rounded-full z-0" 
+            />
+            
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -right-4 top-16 w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-2xl z-20 cursor-pointer hover:bg-blue-700 transition-colors"
+            >
+              <div className="relative">
+                <Globe size={28} />
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
+              </div>
+            </motion.div>
           </motion.div>
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.2, 1],
-              rotate: [0, 5, 0]
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-            className="absolute -top-10 -right-10 w-48 h-48 bg-primary/10 blur-[60px] rounded-full z-0" 
-          />
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.1, 1],
-              rotate: [0, -5, 0]
-            }}
-            transition={{ duration: 10, repeat: Infinity }}
-            className="absolute -bottom-10 -left-10 w-48 h-48 bg-accent/20 blur-[60px] rounded-full z-0" 
-          />
-          
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-4 top-16 w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-2xl z-20 cursor-pointer hover:bg-blue-700 transition-colors"
-          >
-            <div className="relative">
-              <Globe size={28} />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
-            </div>
-          </motion.div>
-        </motion.div>
+        </Parallax>
       </div>
     </div>
   </section>

@@ -9,8 +9,7 @@ export const Contact = () => {
     <div 
       className="relative pt-32 pb-24 bg-cover bg-center bg-no-repeat"
       style={{ 
-        backgroundImage: "url('/gallery/b9.jpg')",
-        backgroundAttachment: "fixed"
+        backgroundImage: "url('/gallery/b9.jpg')"
       }}
     >
       {/* Overlay for better readability */}
@@ -30,22 +29,22 @@ export const Contact = () => {
             <ContactInfo 
               Icon={Mail} 
               title="Email Us" 
-              detail="Info@webworldhub.in
-Info@webworldhub.co.in 
-Info@webworldhub.com
-Webworldhub@gmail.com" 
+              detail="Info@webworldhub.in" 
+              href="mailto:Info@webworldhub.in"
               subtitle="Our team typically responds in 2 hours."
             />
             <ContactInfo 
               Icon={Phone} 
               title="Call Us" 
-              detail="+91 9971001036 " 
+              detail="+91 9971001036" 
+              href="tel:+919971001036"
               subtitle="Mon-Fri from 9am to 6pm PST."
             />
             <ContactInfo 
               Icon={MapPin} 
               title="Visit Us" 
               detail="Web World Hub, Aligarh, UP" 
+              href="https://www.google.com/maps/place/Web+World+Hub+Aligarh/@27.9294953,78.0854794,16z"
               subtitle="House No. 4/1089 HAMDARD NAGAR (B NEAR CHAD MASJID JAMALPUR KOIL, Aligarh, Uttar Pradesh 202001"
             />
 
@@ -140,14 +139,18 @@ Webworldhub@gmail.com"
   );
 };
 
-const ContactInfo = ({ Icon, title, detail, subtitle }: any) => (
+const ContactInfo = ({ Icon, title, detail, subtitle, href }: any) => (
   <div className="flex gap-6 p-6 glass rounded-2xl border-transparent hover:border-primary/20 transition-all group">
     <div className="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center text-white flex-shrink-0 group-hover:rotate-12 transition-transform">
       <Icon size={24} />
     </div>
     <div>
       <h4 className="font-bold text-lg mb-1">{title}</h4>
-      <p className="text-primary font-bold">{detail}</p>
+      {href ? (
+        <a href={href} className="text-primary font-bold hover:underline">{detail}</a>
+      ) : (
+        <p className="text-primary font-bold">{detail}</p>
+      )}
       <p className="text-xs text-text-dark/40 mt-1">{subtitle}</p>
     </div>
   </div>

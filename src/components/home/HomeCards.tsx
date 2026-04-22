@@ -47,8 +47,11 @@ export const ServiceCard = ({
         <img 
           src={image} 
           alt={title} 
+          width="400"
+          height="192"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           referrerPolicy="no-referrer"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
           <Link to={`/service/${id}`}>
@@ -78,7 +81,15 @@ export const ProjectCard = ({ image, title, category }: { image: string; title: 
   >
     <Card className="p-0 overflow-hidden group">
       <div className="relative h-64 overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+        <img 
+          src={image} 
+          alt={title} 
+          width="600"
+          height="256"
+          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
+          referrerPolicy="no-referrer" 
+          loading="lazy"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
           <Button size="sm" className="gap-2">View Case Study <ExternalLink size={16} /></Button>
         </div>
@@ -129,7 +140,14 @@ export const PricingCard = ({ title, price, features, popular = false }: { title
           </li>
         ))}
       </ul>
-      <Button variant={popular ? "primary" : "outline"} className="w-full">Get Started</Button>
+      <Button 
+        variant={popular ? "primary" : "outline"} 
+        className="w-full"
+        href="https://pmny.in/YIjJuNoJpFZP"
+        target="_blank"
+      >
+        Get Started
+      </Button>
     </Card>
   </motion.div>
 );

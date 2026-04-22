@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "../ui/Button";
+import { useModal } from "../ui/ModalContext";
 
 const heroSlides = [
   {
@@ -43,6 +44,7 @@ const heroSlides = [
 
 export const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { openBookingModal } = useModal();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -55,15 +57,19 @@ export const Hero = () => {
 
   return (
     <section className="relative w-full h-[calc(100vh-110px)] lg:h-[calc(100vh-135px)] overflow-hidden bg-text-dark mt-[110px] lg:mt-[135px]">
+      {/* Static Background Gradient - Better for performance than infinite animations */}
+      <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full z-1" />
+      <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-accent/10 blur-[120px] rounded-full z-1" />
+
       {/* Background Slides */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.image}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "linear" }}
             className="absolute inset-0"
           >
             <img 
@@ -71,9 +77,11 @@ export const Hero = () => {
               className="w-full h-full object-cover" 
               alt="background"
               referrerPolicy="no-referrer"
+              loading="eager"
+              {...({ fetchpriority: "high" } as any)}
             />
             {/* Professional Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-text-dark via-text-dark/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-text-dark via-text-dark/60 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-text-dark/80 via-transparent to-transparent opacity-60" />
           </motion.div>
         </AnimatePresence>
@@ -84,61 +92,98 @@ export const Hero = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    ease: [0.19, 1, 0.22, 1],
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2
+                  }
+                },
+                exit: { opacity: 0, y: -20, transition: { duration: 0.5 } }
+              }}
               className="flex flex-col items-start"
             >
               <motion.span 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
                 className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs font-bold tracking-widest uppercase mb-8 text-white`}
               >
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 {slide.tag}
               </motion.span>
 
-              <h1 className={`text-6xl md:text-[85px] leading-[0.95] mb-8 font-black text-white tracking-tighter`}>
+              <motion.h1 
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                className={`text-6xl md:text-[85px] leading-[0.95] mb-8 font-black text-white tracking-tighter`}
+              >
                 {slide.title}<br />
-                <span className="text-primary italic">{slide.highlight}</span>
-              </h1>
+                <motion.span 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                  className="text-primary italic inline-block"
+                >
+                  {slide.highlight}
+                </motion.span>
+              </motion.h1>
 
-              <p className="text-xl text-white/70 max-w-xl leading-relaxed mb-12 font-medium">
+              <motion.p 
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                className="text-xl text-white/70 max-w-xl leading-relaxed mb-12 font-medium"
+              >
                 Elevating your digital presence through world-class engineering, strategic design, and innovative cloud solutions.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap gap-6 items-center">
-                <Button size="lg" className="px-10 h-16 rounded-full text-lg shadow-2xl shadow-primary/30">
-                  Start Your Journey
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                className="flex flex-wrap gap-6 items-center"
+              >
+                <Button 
+                  size="lg" 
+                  className="px-10 h-16 rounded-full text-lg shadow-2xl shadow-primary/30 relative overflow-hidden group" 
+                  onClick={openBookingModal}
+                >
+                  <span className="relative z-10">Start Your Journey</span>
+                  <motion.div 
+                    className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12"
+                  />
                 </Button>
                 <button className="flex items-center gap-3 text-white font-bold group">
-                  <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-text-dark transition-all duration-300">
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-text-dark transition-all duration-300"
+                  >
                     <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-current border-b-[6px] border-b-transparent ml-1" />
-                  </div>
+                  </motion.div>
                   <span className="border-b border-white/30 group-hover:border-white transition-colors pb-1">Watch Showreel</span>
                 </button>
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* Professional Navigation Indicators */}
-        <div className="absolute bottom-12 left-6 flex flex-col gap-4">
-          {heroSlides.map((_, i) => (
-            <button 
-              key={i}
-              onClick={() => setCurrentSlide(i)}
-              className="group flex items-center gap-4 text-left"
-            >
-              <div className={`h-[2px] transition-all duration-500 ${currentSlide === i ? "w-12 bg-primary" : "w-6 bg-white/20 group-hover:bg-white/40"}`} />
-              <span className={`text-[10px] font-black uppercase tracking-widest transition-all ${currentSlide === i ? "text-white opacity-100" : "text-white/30 opacity-0 group-hover:opacity-100"}`}>
-                0{i + 1}
-              </span>
-            </button>
-          ))}
-        </div>
+     
       </div>
     </section>
   );

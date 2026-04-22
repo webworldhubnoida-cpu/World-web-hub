@@ -4,11 +4,13 @@ import { motion } from "motion/react";
 import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { services } from "../constants/services";
+import { useModal } from "../components/ui/ModalContext";
 
 export const ServiceDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const service = services.find((s) => s.id === id);
+  const { openBookingModal } = useModal();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,8 +35,11 @@ export const ServiceDetail = () => {
         <img 
           src={service.image} 
           alt={service.title} 
+          width="1920"
+          height="1080"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex items-center">
           <div className="max-w-7xl mx-auto px-6 w-full">
@@ -94,7 +99,7 @@ export const ServiceDetail = () => {
                 <div className="glass gradient-bg p-10 rounded-[40px] text-white">
                   <h3 className="text-2xl font-bold mb-4">Start Your Project</h3>
                   <p className="text-white/80 mb-8 font-medium">Ready to transform your business with our {service.title.toLowerCase()}?</p>
-                  <Button variant="white" className="w-full h-14 text-lg font-bold">
+                  <Button variant="white" className="w-full h-14 text-lg font-bold" onClick={openBookingModal}>
                     {service.ctaText}
                   </Button>
                 </div>

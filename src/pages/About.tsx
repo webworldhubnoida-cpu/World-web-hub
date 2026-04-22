@@ -42,8 +42,10 @@ export const About = () => {
             className="relative"
           >
             <img
-              src="https://picsum.photos/seed/office-team/800/600"
+              src="/gallery/who we are.jpeg"
               alt="Our Team"
+              width="1200"
+              height="800"
               className="rounded-3xl shadow-2xl relative z-10"
               referrerPolicy="no-referrer"
             />

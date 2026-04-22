@@ -18,8 +18,7 @@ export const Portfolio = () => (
   <section 
     className="relative py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
     style={{ 
-      backgroundImage: "url('/gallery/b1.jpg')",
-      backgroundAttachment: "fixed"
+      backgroundImage: "url('/gallery/b1.jpg')"
     }}
   >
     {/* Overlay for better readability */}

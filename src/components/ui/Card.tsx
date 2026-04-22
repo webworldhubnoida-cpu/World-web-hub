@@ -11,11 +11,13 @@ interface CardProps {
 export const Card = ({ children, className = "", hoverEffect = true, onClick }: CardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={hoverEffect ? { y: -5, transition: { duration: 0.2 } } : {}}
-      className={`glass rounded-2xl p-6 ${className}`}
+      whileHover={hoverEffect ? { 
+        y: -10, 
+        boxShadow: "0 20px 40px rgba(124, 58, 237, 0.15)",
+        borderColor: "rgba(124, 58, 237, 0.4)",
+        transition: { duration: 0.3, ease: "easeOut" } 
+      } : {}}
+      className={`glass rounded-3xl p-8 border border-white/40 transition-colors duration-300 ${className}`}
       onClick={onClick}
     >
       {children}

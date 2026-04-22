@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { TeamMember } from "./HomeItems";
 import { teamMembers } from "../../constants/team";
@@ -7,8 +8,7 @@ export const TeamSection = () => (
   <section 
     className="relative py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
     style={{ 
-      backgroundImage: "url('/gallery/b1.jpg')",
-      backgroundAttachment: "fixed"
+      backgroundImage: "url('/gallery/b1.jpg')"
     }}
   >
     {/* Overlay for better readability */}
@@ -22,18 +22,28 @@ export const TeamSection = () => (
     </div>
     
     <div className="relative flex overflow-x-hidden z-10">
-      <div className="animate-marquee flex gap-8 py-4 px-4 whitespace-nowrap">
+      <motion.div 
+        initial={{ x: 0 }}
+        whileInView={{ x: [0, "-50%"] }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="flex gap-8 py-4 px-4 whitespace-nowrap"
+      >
         {/* First set of members */}
         {[...teamMembers, ...teamMembers].map((member, index) => (
-          <div key={`${member.id}-${index}`} className="w-[300px] flex-shrink-0">
+          <div key={`${member.id}-${index}`} className="w-[280px] md:w-[320px] flex-shrink-0">
             <TeamMember 
-              image={member.image} 
+              image={member.image}
+              alt={member.alt}
               name={member.name} 
               role={member.role} 
             />
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );

@@ -18,29 +18,30 @@ import { AssociatesMarquee } from "../components/home/AssociatesMarquee";
 import { StatsSection } from "../components/home/StatsSection";
 import { CtaSection } from "../components/home/CtaSection";
 import { Contact } from "./Contact";
+import { FadeIn } from "../components/ui/FadeIn";
 
 export const Home = () => {
   return (
     <div className="overflow-hidden">
       <Hero />
-      <WhoWeAre />
-      <AboutHighlights />
+      <FadeIn><WhoWeAre /></FadeIn>
+      <FadeIn><AboutHighlights /></FadeIn>
       
-      <EvolutionTimeline />
-            <StatsSection />
- <AssociatesMarquee />
-       <ServicesPreview />
+      <FadeIn><EvolutionTimeline /></FadeIn>
+      <FadeIn><StatsSection /></FadeIn>
+      <FadeIn><AssociatesMarquee /></FadeIn>
+      <FadeIn><ServicesPreview /></FadeIn>
 
-      <TechStack />
-      <Portfolio />
-      <TeamSection />
-      <PricingSection />
-      <FaqSection />
-      <BlogSection />
-      <CareersSection />
-      <TestimonialsSection />
-<Contact/>     
-      <CtaSection />
+      <FadeIn><TechStack /></FadeIn>
+      <FadeIn><Portfolio /></FadeIn>
+      <FadeIn><TeamSection /></FadeIn>
+      <FadeIn><PricingSection /></FadeIn>
+      <FadeIn><FaqSection /></FadeIn>
+      <FadeIn><BlogSection /></FadeIn>
+      <FadeIn><CareersSection /></FadeIn>
+      <FadeIn><TestimonialsSection /></FadeIn>
+      <FadeIn><Contact/></FadeIn>     
+      <FadeIn><CtaSection /></FadeIn>
     </div>
   );
 };

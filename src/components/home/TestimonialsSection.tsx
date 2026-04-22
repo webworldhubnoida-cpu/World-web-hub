@@ -7,8 +7,7 @@ export const TestimonialsSection = () => (
   <section 
     className="relative py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
     style={{ 
-      backgroundImage: "url('/gallery/b4.jpg')",
-      backgroundAttachment: "fixed"
+      backgroundImage: "url('/gallery/b3.jpg')"
     }}
   >
     {/* Overlay for better readability */}
@@ -21,7 +20,7 @@ export const TestimonialsSection = () => (
       />
     </div>
 
-    <div className="relative flex overflow-x-hidden z-10">
+    <div className="relative flex overflow-x-hidden z-10 pause-on-hover">
       <div className="animate-marquee-slow flex items-stretch gap-12 py-8 px-4 whitespace-nowrap">
         {[...testimonials, ...testimonials, ...testimonials].map((t, index) => (
           <div key={`${t.id}-${index}`} className="flex-shrink-0 flex">

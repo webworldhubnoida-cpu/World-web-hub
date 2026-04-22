@@ -45,7 +45,15 @@ export const TechSkill = ({ title, icon, skills }: { title: string; icon: any; s
 export const BlogCard = ({ image, title, date }: { image: string; title: string; date: string }) => (
   <Card className="p-0 overflow-hidden group h-full">
     <div className="h-48 overflow-hidden">
-      <img src={image} alt={title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform" referrerPolicy="no-referrer" />
+      <img 
+        src={image} 
+        alt={title} 
+        width="400"
+        height="192"
+        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform" 
+        referrerPolicy="no-referrer" 
+        loading="lazy"
+      />
     </div>
     <div className="p-6">
       <p className="text-xs text-text-dark/50 font-medium mb-2">{date}</p>
@@ -77,8 +85,11 @@ export const TestimonialCard = ({ quote, author, role, image }: { quote: string;
         <img 
           src={image || `https://picsum.photos/seed/${author}/100/100`} 
           alt={author} 
+          width="80"
+          height="80"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
+          loading="lazy"
         />
       </div>
       <div className="w-full">
@@ -95,8 +106,11 @@ export const AssociateCard = ({ name, image }: { name: string; image: string; ke
       <img
         src={image}
         alt={name}
+        width="150"
+        height="64"
         className="max-w-full max-h-full object-contain"
         referrerPolicy="no-referrer"
+        loading="lazy"
       />
     </div>
     <div className="flex flex-col items-center">
@@ -117,13 +131,28 @@ export const TimelineItem = ({ year, title, desc }: { year: string; title: strin
   </div>
 );
 
-export const TeamMember = ({ image, name, role }: { image: string; name: string; role: string }) => (
-  <Card className="group text-center">
-    <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl">
-      <img src={image} alt={name} className="w-full h-full object-cover transition-all" referrerPolicy="no-referrer" />
+export const TeamMember = ({ name, role, image, alt }: { name: string; role: string; image: string; alt?: string }) => (
+  <Card className="group text-center p-0 overflow-hidden h-full">
+    <div className="relative h-72 overflow-hidden mb-6">
+      <img 
+        src={image} 
+        alt={alt || name} 
+        width="300"
+        height="288"
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        referrerPolicy="no-referrer"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6">
+        <div className="flex gap-4">
+          {/* Social icons could go here */}
+        </div>
+      </div>
     </div>
-    <h4 className="text-lg font-bold">{name}</h4>
-    <p className="text-sm text-text-dark/60 font-medium">{role}</p>
+    <div className="p-6 pt-0">
+      <h4 className="text-xl font-bold group-hover:text-primary transition-colors">{name}</h4>
+      <p className="text-sm text-text-dark/60 font-bold uppercase tracking-widest mt-1">{role}</p>
+    </div>
   </Card>
 );
 

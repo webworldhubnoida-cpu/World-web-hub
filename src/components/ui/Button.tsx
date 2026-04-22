@@ -6,7 +6,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: any;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
 export const Button = ({
@@ -14,16 +17,19 @@ export const Button = ({
   size = "md",
   children,
   className = "",
+  href,
+  target,
+  rel,
   ...props
 }: ButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    primary: "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/25 rounded-[16px]",
+    primary: "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/25 rounded-[16px] relative overflow-hidden",
     secondary: "bg-white text-primary border-2 border-primary hover:bg-primary/5 rounded-[16px]",
     outline: "border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-[16px]",
     ghost: "bg-transparent text-primary hover:bg-primary/10 rounded-[12px]",
-    white: "bg-white text-primary hover:bg-white/90 shadow-xl rounded-[16px]",
+    white: "bg-white text-primary hover:bg-white/90 shadow-xl rounded-[16px] relative overflow-hidden",
   };
 
   const sizes = {
@@ -32,14 +38,45 @@ export const Button = ({
     lg: "px-8 py-4 text-lg",
   };
 
+  const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+
+  const buttonContent = (
+    <>
+      <span className="relative z-10">{children}</span>
+      {(variant === "primary" || variant === "white") && (
+        <motion.div
+          initial={{ x: "-100%", skewX: -15 }}
+          whileHover={{ x: "100%" }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="absolute inset-0 bg-white/20 z-0"
+        />
+      )}
+    </>
+  );
+
+  if (href) {
+    return (
+      <motion.a
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        href={href}
+        target={target}
+        rel={rel || (target === "_blank" ? "noopener noreferrer" : undefined)}
+        className={classes}
+      >
+        {buttonContent}
+      </motion.a>
+    );
+  }
+
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.95 }}
+      className={classes}
       {...props}
     >
-      {children}
+      {buttonContent}
     </motion.button>
   );
 };

@@ -28,12 +28,7 @@ export const BranchDetail = () => {
   return (
     <div className="pt-24 lg:pt-32 bg-bg-light min-h-screen">
       <section className="relative h-[50vh] overflow-hidden">
-        <img 
-          src={branch.image} 
-          alt={branch.city} 
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-        />
+    
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-center">
           <div className="max-w-4xl px-6">
             <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8 group">

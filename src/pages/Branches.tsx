@@ -25,14 +25,7 @@ export const Branches = () => {
               transition={{ delay: (index % 6) * 0.1 }}
             >
               <Card className="p-0 overflow-hidden h-full flex flex-col group hover:border-primary/50 transition-colors">
-                <div className="h-48 overflow-hidden relative">
-                   <img 
-                      src={branch.image} 
-                      alt={branch.city} 
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                   />
-                </div>
+            
                 <div className="p-8 flex flex-col flex-grow">
                    <div className="flex justify-between items-start mb-4">
                       <h3 className="text-2xl font-black group-hover:text-primary transition-colors">{branch.city}</h3>

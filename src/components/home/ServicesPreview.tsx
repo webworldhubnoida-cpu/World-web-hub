@@ -18,8 +18,7 @@ export const ServicesPreview = () => (
   <section 
     className="relative py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
     style={{ 
-      backgroundImage: "url('/gallery/b3.jpg')",
-      backgroundAttachment: "fixed"
+      backgroundImage: "url('/gallery/b3.jpg')"
     }}
   >
     {/* Overlay for better readability */}

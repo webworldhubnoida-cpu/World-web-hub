@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "./Button";
 import { TopHeader } from "./TopHeader";
+import { useModal } from "./ModalContext";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -20,6 +21,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
+  const { openBookingModal } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,8 +39,8 @@ export const Navbar = () => {
         <TopHeader scrolled={scrolled} />
       </div>
       <nav
-        className={`transition-all duration-300 bg-bg-light border-b border-primary/10 shadow-sm ${
-          scrolled ? "py-2" : "py-4"
+        className={`transition-all duration-300 border-b border-primary/10 shadow-sm ${
+          scrolled ? "py-2 bg-bg-light/80 backdrop-blur-lg" : "py-4 bg-bg-light"
         }`}
       >
       <div className="max-w-7xl mx-auto w-full px-6 h-[75px] flex items-center justify-between">
@@ -47,6 +49,8 @@ export const Navbar = () => {
             <img 
               src="/gallery/logo.png" 
               alt="World Web Hub" 
+              width="150"
+              height="40"
               className="h-full w-auto object-contain"
             />
           </div>
@@ -55,18 +59,26 @@ export const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-10">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 relative">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-[13px] font-bold uppercase tracking-widest transition-all hover:text-primary ${
+                className={`text-[13px] font-bold uppercase tracking-widest transition-all relative py-2 group ${
                   location.pathname === link.path 
                     ? "text-primary" 
-                    : "text-text-dark/70"
+                    : "text-text-dark/70 hover:text-primary"
                 }`}
               >
                 {link.name}
+                {location.pathname === link.path && (
+                  <motion.div
+                    layoutId="navbar-underline"
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
@@ -82,6 +94,7 @@ export const Navbar = () => {
               variant="primary" 
               size="sm" 
               className="px-6 rounded-full shadow-none hover:shadow-lg"
+              onClick={openBookingModal}
             >
               Get Started
             </Button>
@@ -108,28 +121,59 @@ export const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-bg-light/95 backdrop-blur-2xl border-b border-primary/10 overflow-hidden shadow-2xl"
-          >
-            <div className="flex flex-col p-6 gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium ${
-                    location.pathname === link.path ? "text-primary" : "text-text-dark"
-                  }`}
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[-1] lg:hidden"
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-bg-light shadow-2xl z-50 lg:hidden flex flex-col"
+            >
+              <div className="flex items-center justify-between p-6 border-b border-primary/10">
+                 <img src="/gallery/logo.png" alt="Logo" width="120" height="40" className="h-10 w-auto" />
+                 <button onClick={() => setIsOpen(false)} className="p-2 text-text-dark">
+                  <X size={28} />
+                </button>
+              </div>
+              <div className="flex flex-col p-8 gap-6">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                  >
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-2xl font-bold tracking-tight ${
+                        location.pathname === link.path ? "text-primary" : "text-text-dark"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-4"
                 >
-                  {link.name}
-                </Link>
-              ))}
-              <Button onClick={() => setIsOpen(false)}>Get Started</Button>
-            </div>
-          </motion.div>
+                  <Button className="w-full" onClick={() => { setIsOpen(false); openBookingModal(); }}>
+                    Get Started
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

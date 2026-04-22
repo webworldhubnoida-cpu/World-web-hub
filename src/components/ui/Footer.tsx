@@ -50,26 +50,22 @@ export const Footer = () => {
         <div>
           <h4 className="text-lg font-bold mb-6">Contact Us</h4>
           <ul className="space-y-4 text-white/60">
-            <li>House No. 4/1089 HAMDARD NAGAR (B NEAR CHAD MASJID JAMALPUR KOIL, Aligarh, Uttar Pradesh 202001</li>
-            <li>Info@webworldhub.in
-Info@webworldhub.co.in 
-Info@webworldhub.com
-Webworldhub@gmail.com</li>
-            <li>+91 9971001036 </li>
+            <li>
+              <a href="https://www.google.com/maps/place/Web+World+Hub+Aligarh/@27.9294953,78.0854794,16z" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                House No. 4/1089 HAMDARD NAGAR (B NEAR CHAD MASJID JAMALPUR KOIL, Aligarh, Uttar Pradesh 202001
+              </a>
+            </li>
+            <li className="flex flex-col gap-1">
+              <a href="mailto:Info@webworldhub.in" className="hover:text-primary transition-colors">Info@webworldhub.in</a>
+              <a href="mailto:Info@webworldhub.co.in" className="hover:text-primary transition-colors text-xs">Info@webworldhub.co.in</a>
+              <a href="mailto:Info@webworldhub.com" className="hover:text-primary transition-colors text-xs">Info@webworldhub.com</a>
+              <a href="mailto:Webworldhub@gmail.com" className="hover:text-primary transition-colors text-xs">Webworldhub@gmail.com</a>
+            </li>
+            <li>
+              <a href="tel:+919971001036" className="hover:text-primary transition-colors font-bold">+91 9971001036</a>
+            </li>
           </ul>
-          <div className="mt-8">
-            <h5 className="font-semibold mb-4">Subscribe to Newsletter</h5>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Email"
-                className="bg-white/10 border border-white/20 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary w-full"
-              />
-              <button className="bg-primary px-4 py-2 rounded-xl hover:bg-primary/90 transition-colors">
-                Join
-              </button>
-            </div>
-          </div>
+          
         </div>
       </div>
 

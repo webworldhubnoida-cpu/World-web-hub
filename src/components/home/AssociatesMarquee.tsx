@@ -38,18 +38,27 @@ export const AssociatesMarquee = () => (
     
     <div className="relative flex overflow-x-hidden group">
       <motion.div
-        animate={{
+        initial={{ x: 0 }}
+        whileInView={{
           x: [0, "-50%"],
         }}
+        viewport={{ once: false }}
         transition={{
           duration: 40,
           repeat: Infinity,
           ease: "linear",
         }}
-        className="flex gap-8 whitespace-nowrap py-4"
+        whileHover={{ animationPlayState: "paused" }}
+        className="flex gap-8 whitespace-nowrap py-4 cursor-pointer"
       >
         {[...associates, ...associates].map((item, idx) => (
-          <AssociateCard key={`${item.name}-${idx}`} name={item.name} image={item.image} />
+          <motion.div
+            key={`${item.name}-${idx}`}
+            whileHover={{ scale: 1.05, y: -5 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <AssociateCard name={item.name} image={item.image} />
+          </motion.div>
         ))}
       </motion.div>
     </div>
