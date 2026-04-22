@@ -272,5 +272,16 @@ export const branches: Branch[] = [
     email: "northdelhi@worldwebhub.com",
     mapUrl: "https://maps.google.com",
     description: "Innovative research center for academic and scientific computing."
+  },
+   {
+    id: "noida",
+    city: "Noida",
+    country: "India",
+    address: "Model Town, New Delhi 110009",
+    phone: "+91 11 5678 9012",
+    email: "noida@worldwebhub.com", 
+    mapUrl: "https://maps.google.com",
+    description: "Innovative research center for academic and scientific computing."
   }
+
 ];

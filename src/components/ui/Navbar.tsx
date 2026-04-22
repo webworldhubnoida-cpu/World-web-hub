@@ -47,7 +47,7 @@ export const Navbar = () => {
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <div className="h-35 w-auto flex items-center justify-center transition-transform group-hover:scale-105">
             <img 
-              src="/gallery/logo.png" 
+              src="/gallery/navbarlogo.png" 
               alt="World Web Hub" 
               width="150"
               height="40"

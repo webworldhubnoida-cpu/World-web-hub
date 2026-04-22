@@ -8,10 +8,14 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div>
           <Link to="/" className="flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white">
-              <Globe size={24} />
-            </div>
-            <span className="text-2xl font-bold">World Web Hub</span>
+            
+            <img 
+              src="/gallery/footer logo.png" 
+              alt="World Web Hub" 
+              width="75"
+              height="20"
+              className="h-25 w-auto object-contain"
+            />
           </Link>
           <p className="text-white/60 mb-6 leading-relaxed">
             Building scalable digital solutions for the next generation of enterprises. 
