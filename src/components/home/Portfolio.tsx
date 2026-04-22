@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { ProjectCard } from "./HomeCards";
 import { Button } from "../ui/Button";
+import { projects } from "../../constants/portfolio";
+import { Link } from "react-router-dom";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,24 +38,19 @@ export const Portfolio = () => (
         viewport={{ once: true }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
-        <ProjectCard 
-          image="https://picsum.photos/seed/fintech/800/600"
-          title="Nova Bank"
-          category="Fintech"
-        />
-        <ProjectCard 
-          image="https://picsum.photos/seed/ecommerce/800/600"
-          title="Luxe Mart"
-          category="E-commerce"
-        />
-        <ProjectCard 
-          image="https://picsum.photos/seed/health/800/600"
-          title="Vital Care"
-          category="Healthcare"
-        />
+        {projects.slice(0, 3).map((project) => (
+          <ProjectCard 
+            key={project.id}
+            image={project.image}
+            title={project.title}
+            category={project.category}
+          />
+        ))}
       </motion.div>
       <div className="text-center mt-12">
-        <Button variant="outline">View All Projects</Button>
+        <Link to="/projects">
+          <Button variant="outline">View All Projects</Button>
+        </Link>
       </div>
     </div>
   </section>
