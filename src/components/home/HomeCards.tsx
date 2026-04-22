@@ -120,34 +120,33 @@ export const WhyUsCard = ({ Icon, title, desc }: { Icon: any; title: string; des
 );
 
 export const PricingCard = ({ title, price, features, popular = false }: { title: string; price: string; features: string[]; popular?: boolean }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: popular ? 0.9 : 0.95 }}
-    whileInView={{ opacity: 1, scale: popular ? 1.05 : 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-  >
-    <Card className={`relative ${popular ? "border-primary shadow-2xl" : ""}`}>
-      {popular && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold">Most Popular</span>}
-      <h4 className="text-xl font-bold mb-2">{title}</h4>
-      <div className="flex items-baseline gap-1 mb-6">
-        <span className="text-4xl font-extrabold">{price}</span>
-        {price !== "Custom" && <span className="text-text-dark/50 font-medium">/mo</span>}
+  <div className="h-full">
+    <Card className={`relative h-full flex flex-col ${popular ? "border-primary shadow-2xl scale-100 md:scale-105" : ""}`}>
+      {popular && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold z-20">Most Popular</span>}
+      <div className="flex-grow">
+        <h4 className="text-xl font-bold mb-2">{title}</h4>
+        <div className="flex items-baseline gap-1 mb-6">
+          <span className="text-4xl font-extrabold">{price}</span>
+          {price !== "Custom" && <span className="text-text-dark/50 font-medium">/mo</span>}
+        </div>
+        <ul className="space-y-4 mb-8">
+          {features.map((f) => (
+            <li key={f} className="flex items-center gap-3 text-sm font-medium text-text-dark/70">
+              <CheckCircle2 size={18} className="text-primary shrink-0" /> {f}
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className="space-y-4 mb-8">
-        {features.map((f) => (
-          <li key={f} className="flex items-center gap-3 text-sm font-medium text-text-dark/70">
-            <CheckCircle2 size={18} className="text-primary shrink-0" /> {f}
-          </li>
-        ))}
-      </ul>
-      <Button 
-        variant={popular ? "primary" : "outline"} 
-        className="w-full"
-        href="https://pmny.in/YIjJuNoJpFZP"
-        target="_blank"
-      >
-        Get Started
-      </Button>
+      <div className="mt-auto">
+        <Button 
+          variant={popular ? "primary" : "outline"} 
+          className="w-full"
+          href="https://pmny.in/YIjJuNoJpFZP"
+          target="_blank"
+        >
+          Get Started
+        </Button>
+      </div>
     </Card>
-  </motion.div>
+  </div>
 );

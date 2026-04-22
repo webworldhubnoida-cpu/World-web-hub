@@ -1,6 +1,7 @@
 import React from "react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { PricingCard } from "./HomeCards";
+import { FadeIn, FadeInStagger } from "../ui/FadeIn";
 
 export const PricingSection = () => (
   <section 
@@ -19,8 +20,10 @@ export const PricingSection = () => (
       />
 
       {/* 🔥 Website Packages */}
-      <h3 className="text-2xl font-semibold mb-6 text-gray-800">Website Packages</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <FadeIn>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Website Packages</h3>
+      </FadeIn>
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <PricingCard 
           title="Basic Website" 
           price="₹7,999" 
@@ -52,11 +55,13 @@ export const PricingSection = () => (
             "Order Tracking"
           ]} 
         />
-      </div>
+      </FadeInStagger>
 
       {/* 🚀 Business Portals */}
-      <h3 className="text-2xl font-semibold mb-6 text-gray-800">Business Portals</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <FadeIn>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Business Portals</h3>
+      </FadeIn>
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <PricingCard 
           title="B2B Portal" 
           price="Starting ₹50K" 
@@ -77,37 +82,43 @@ export const PricingSection = () => (
             "Analytics Dashboard"
           ]} 
         />
-      </div>
+      </FadeInStagger>
 
       {/* ⚙️ Software Solutions */}
-      <h3 className="text-2xl font-semibold mb-6 text-gray-800">Software Solutions</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <FadeIn>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Software Solutions</h3>
+      </FadeIn>
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <PricingCard title="Billing Software" price="Custom" features={["Invoice System", "GST Ready", "Reports"]} />
         <PricingCard title="Inventory Management" price="Custom" features={["Stock Tracking", "Alerts", "Reports"]} />
         <PricingCard title="HRMS" price="Custom" features={["Employee Management", "Payroll", "Attendance"]} />
         <PricingCard title="CMS" price="Custom" features={["Content Control", "User Roles", "Dashboard"]} />
         <PricingCard title="Custom Application" price="Custom" features={["Web/App Dev", "API Integration", "Scalable"]} />
         <PricingCard title="Custom Software" price="Custom" features={["Enterprise Grade", "Secure", "High Performance"]} />
-      </div>
+      </FadeInStagger>
 
       {/* 📈 Marketing Services */}
-      <h3 className="text-2xl font-semibold mb-6 text-gray-800">Marketing Services</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <FadeIn>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Marketing Services</h3>
+      </FadeIn>
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <PricingCard title="SEO" price="Custom" features={["On-Page SEO", "Off-Page SEO", "Ranking Boost"]} />
         <PricingCard title="SMO" price="Custom" features={["Social Growth", "Content Strategy", "Engagement"]} />
         <PricingCard title="Google My Business" price="Custom" features={["Profile Setup", "Optimization", "Ranking"]} />
         <PricingCard title="Google Ads" price="Custom" features={["Campaign Setup", "Leads", "Optimization"]} />
         <PricingCard title="Social Media Ads" price="Custom" features={["Facebook/Instagram Ads", "Targeting", "ROI Focus"]} />
         <PricingCard title="Google AdSense" price="Custom" features={["Setup", "Approval Help", "Monetization"]} />
-      </div>
+      </FadeInStagger>
 
       {/* 🎨 Creative Services */}
-      <h3 className="text-2xl font-semibold mb-6 text-gray-800">Creative Services</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <FadeIn>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Creative Services</h3>
+      </FadeIn>
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <PricingCard title="Logo Design (2D/3D)" price="Custom" features={["Brand Identity", "Creative Concepts", "Revisions"]} />
         <PricingCard title="Graphic Design" price="Custom" features={["Social Posts", "Banners", "Ads"]} />
         <PricingCard title="Video Editing" price="Custom" features={["Reels/Ads", "Transitions", "Professional Output"]} />
-      </div>
+      </FadeInStagger>
 
     </div>
   </section>

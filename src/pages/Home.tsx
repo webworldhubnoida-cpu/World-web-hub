@@ -28,14 +28,14 @@ export const Home = () => {
       <FadeIn><AboutHighlights /></FadeIn>
       
       <FadeIn><EvolutionTimeline /></FadeIn>
-      <FadeIn><StatsSection /></FadeIn>
-      <FadeIn><AssociatesMarquee /></FadeIn>
+      <StatsSection />
+      <AssociatesMarquee />
       <FadeIn><ServicesPreview /></FadeIn>
 
       <FadeIn><TechStack /></FadeIn>
-      <FadeIn><Portfolio /></FadeIn>
-      <FadeIn><TeamSection /></FadeIn>
-      <FadeIn><PricingSection /></FadeIn>
+      <Portfolio />
+      <TeamSection />
+      <PricingSection />
       <FadeIn><FaqSection /></FadeIn>
       <FadeIn><BlogSection /></FadeIn>
       <FadeIn><CareersSection /></FadeIn>

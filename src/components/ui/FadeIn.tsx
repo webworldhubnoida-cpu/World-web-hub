@@ -45,7 +45,7 @@ export const FadeIn = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: viewPortAmount }}
+      viewport={{ once: true, amount: 0.01 }}
       variants={variants}
       className={className}
     >
