@@ -89,5 +89,22 @@ export const services: Service[] = [
     image: "https://tse2.mm.bing.net/th/id/OIP.EzuNx0ddHjCg9PXhDZhJuwHaE8?w=626&h=418&rs=1&pid=ImgDetMain&o=7&rm=3",
     features: ["Custom Logo", "Brand Identity", "Creative Graphics", "Multiple Revisions"],
     ctaText: "Design Your Brand"
-  }
+  },
+  {
+  id: "custom-software-development",
+  title: "Custom Software Development",
+  category: "Software",
+  shortDesc: "Business software solutions tailored to automate and scale your operations.",
+  longDesc: "We build powerful custom software solutions designed to streamline your business processes. From billing systems to CRM and HRMS platforms, our solutions are scalable, secure, and tailored to your exact business requirements.",
+  image: "https://images.pexels.com/photos/36706460/pexels-photo-36706460.jpeg",
+  features: [
+    "Billing Software",
+    "Inventory Management",
+    "CRM Systems",
+    "HRMS Solutions",
+    "CMS Development",
+    "Custom Dashboards"
+  ],
+  ctaText: "Build Your Software"
+}
 ];

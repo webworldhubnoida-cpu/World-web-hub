@@ -28,7 +28,7 @@ export const TestimonialsSection = () => (
               quote={t.quote} 
               author={t.author} 
               role={t.role} 
-              image={t.image}
+             
             />
           </div>
         ))}

@@ -66,38 +66,44 @@ export const BlogCard = ({ image, title, date }: { image: string; title: string;
   </Card>
 );
 
-export const TestimonialCard = ({ quote, author, role, image }: { quote: string; author: string; role: string; image?: string }) => (
-  <Card className="relative p-10 w-[320px] min-h-[500px] h-auto flex flex-col justify-between group hover:border-primary/50 transition-all duration-500 bg-white/80 backdrop-blur-sm whitespace-normal">
-    <div className="absolute top-8 right-10 text-primary/5 group-hover:text-primary/10 transition-colors">
-      <Layout size={80} />
+export const TestimonialCard = ({ quote, author, role }: { quote: string; author: string; role: string }) => (
+  <Card className="relative p-8 w-[300px] min-h-[420px] flex flex-col justify-between group hover:border-primary/50 transition-all duration-500 bg-white/80 backdrop-blur-sm whitespace-normal">
+    
+    {/* Background Icon */}
+    <div className="absolute top-6 right-6 text-primary/5 group-hover:text-primary/10 transition-colors">
+      <Layout size={70} />
     </div>
     
-    <div className="relative z-10 mb-8">
-      <div className="flex gap-1 mb-6">
+    {/* Content */}
+    <div className="relative z-10 mb-6">
+      <div className="flex gap-1 mb-4 justify-center">
         {[1, 2, 3, 4, 5].map((star) => (
           <span key={star} className="text-highlight text-sm">★</span>
         ))}
       </div>
-      <p className="text-lg font-medium text-slate-900 italic leading-relaxed">
+
+      <p className="text-base font-medium text-slate-900 italic leading-relaxed text-center">
         "{quote}"
       </p>
     </div>
 
-    <div className="relative z-10 flex flex-col items-center text-center mt-auto pt-8 border-t border-primary/5">
-      <div className="w-20 h-20 rounded-2xl overflow-hidden border-4 border-white shadow-xl mb-4 group-hover:scale-110 transition-transform duration-500">
-        <img 
-          src={image || `https://picsum.photos/seed/${author}/100/100`} 
-          alt={author} 
-          width="80"
-          height="80"
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-        />
+    {/* Avatar + Info */}
+    <div className="relative z-10 flex flex-col items-center text-center mt-auto pt-6 border-t border-primary/5">
+      
+      {/* Avatar */}
+      <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md mb-3 
+                      bg-gradient-to-r from-primary to-secondary 
+                      group-hover:scale-110 transition-transform duration-500">
+        {author?.charAt(0)}
       </div>
+
       <div className="w-full">
-        <h4 className="font-black text-slate-900 text-lg break-words px-2">{author}</h4>
-        <p className="text-xs text-primary font-black uppercase tracking-widest mt-1 break-words px-2">{role}</p>
+        <h4 className="font-semibold text-slate-900 text-sm break-words px-2">
+          {author}
+        </h4>
+        <p className="text-[10px] text-primary font-bold uppercase tracking-widest mt-1 break-words px-2">
+          {role}
+        </p>
       </div>
     </div>
   </Card>

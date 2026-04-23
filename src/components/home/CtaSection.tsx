@@ -18,7 +18,7 @@ export const CtaSection = () => {
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Scale Your Business?</h2>
             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Join hundreds of successful companies already using our solutions to grow their digital presence.
+Let's Start a Conversation With Our Team
             </p>
             <div className="flex justify-center gap-4">
               <Button variant="white" onClick={openBookingModal}>

@@ -26,7 +26,7 @@ export const TeamSection = () => (
         initial={{ x: 0 }}
         whileInView={{ x: [0, "-50%"] }}
         transition={{
-          duration: 30,
+          duration: 80,
           repeat: Infinity,
           ease: "linear",
         }}

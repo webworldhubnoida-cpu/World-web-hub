@@ -85,11 +85,11 @@ export const WhoWeAre = () => (
             className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8"
           >
             {[
-              { label: "4.7 Star Google Ratings", icon: "⭐" },
+              { label: "4.9 Star Google Ratings", icon: "⭐" },
               { label: "Trusted By 10000+ Clients", icon: "🤝" },
               { label: "Expert Designing Team", icon: "🎨" },
               { label: "Seamless communication", icon: "💬" },
-              { label: "12 Years of Experience", icon: "⏳" },
+              { label: "15 Years of Experience", icon: "⏳" },
               { label: "Clear time frame for delivery", icon: "📅" }
             ].map((item) => (
               <motion.div 

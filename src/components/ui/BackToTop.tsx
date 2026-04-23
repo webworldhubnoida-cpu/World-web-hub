@@ -31,7 +31,7 @@ export const BackToTop = () => {
           }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 w-14 h-14 gradient-bg text-white rounded-full shadow-2xl flex items-center justify-center transition-all group"
+          className="fixed bottom-8 right-28 z-40 w-14 h-14 gradient-bg text-white rounded-full shadow-2xl flex items-center justify-center transition-all group"
         >
           <motion.div
             animate={{

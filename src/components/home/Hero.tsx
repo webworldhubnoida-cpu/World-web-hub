@@ -2,8 +2,35 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "../ui/Button";
 import { useModal } from "../ui/ModalContext";
-
 const heroSlides = [
+
+    {
+    image: "https://images.pexels.com/photos/48606/pexels-photo-48606.jpeg",
+    title: "Powerful Mobile",
+    highlight: "App Development",
+    tag: "Android & iOS Experts",
+    fontClass: "font-sans tracking-tight",
+    bgClass: "bg-primary/5",
+    accentColor: "text-primary"
+  },
+  {
+    image: "https://images.pexels.com/photos/6956915/pexels-photo-6956915.jpeg",
+    title: "Smart Online",
+    highlight: "E-commerce Solutions",
+    tag: "Sell Products Online",
+    fontClass: "font-serif tracking-wide",
+    bgClass: "bg-secondary/5",
+    accentColor: "text-secondary"
+  },
+  {
+    image: "https://images.pexels.com/photos/17771096/pexels-photo-17771096.jpeg",
+    title: "Creative Unique",
+    highlight: "Logo Design",
+    tag: "Build Your Brand Identity",
+    fontClass: "font-mono uppercase tracking-tight",
+    bgClass: "bg-primary/5",
+    accentColor: "text-primary"
+  },
   {
     image: "/gallery/b5.jpg",
     title: "Building Scalable",
@@ -33,13 +60,17 @@ const heroSlides = [
   },
   {
     image: "https://wallpapers.com/images/hd/4k-social-media-5333-x-3000-wallpaper-gbskt9sxxqx0ex04.jpg",
-    title: "SEO and Meta ads",
-    highlight: "grow your business",
+    title: "SEO and Meta Ads",
+    highlight: "Grow Your Business",
     tag: "Growth Partners",
     fontClass: "font-sans tracking-tight",
     bgClass: "bg-secondary/5",
     accentColor: "text-secondary"
   },
+
+  // 🔥 New Slides
+
+
 ];
 
 export const Hero = () => {

@@ -26,6 +26,8 @@ const FAQ = lazy(() => import("./pages/FAQ").then(module => ({ default: module.F
 const Pricing = lazy(() => import("./pages/Pricing").then(module => ({ default: module.Pricing })));
 const Blog = lazy(() => import("./pages/Blog").then(module => ({ default: module.Blog })));
 const Careers = lazy(() => import("./pages/Careers").then(module => ({ default: module.Careers })));
+const Videos = lazy(() => import("./pages/Videos").then(module => ({ default: module.Videos })));
+const Gallery = lazy(() => import("./pages/Gallery").then(module => ({ default: module.Gallery })));
 const TechStack = lazy(() => import("./pages/TechStack").then(module => ({ default: module.TechStack })));
 const Certificates = lazy(() => import("./pages/Certificates").then(module => ({ default: module.Certificates })));
 const Clients = lazy(() => import("./pages/Clients").then(module => ({ default: module.Clients })));
@@ -62,6 +64,8 @@ function AppContent() {
                 <Route path="/team" element={<Team />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/pricing" element={<Pricing />} />
+                <Route path="/videos" element={<Videos />} />
+                <Route path="/gallery" element={<Gallery />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/tech-stack" element={<TechStack />} />

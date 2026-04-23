@@ -19,6 +19,7 @@ import { StatsSection } from "../components/home/StatsSection";
 import { CtaSection } from "../components/home/CtaSection";
 import { Contact } from "./Contact";
 import { FadeIn } from "../components/ui/FadeIn";
+import {Listing} from "../components/home/Listing";
 
 export const Home = () => {
   return (
@@ -36,6 +37,7 @@ export const Home = () => {
       <Portfolio />
       <TeamSection />
       <PricingSection />
+      <Listing />
       <FadeIn><FaqSection /></FadeIn>
       <FadeIn><BlogSection /></FadeIn>
       <FadeIn><CareersSection /></FadeIn>

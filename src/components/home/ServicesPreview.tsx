@@ -16,36 +16,46 @@ const containerVariants = {
 
 export const ServicesPreview = () => (
   <section 
-    className="relative py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
-    style={{ 
-      backgroundImage: "url('/gallery/b3.jpg')"
-    }}
+    className="relative h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/gallery/b3.jpg')" }}
   >
-    {/* Overlay for better readability */}
+    {/* Overlay */}
     <div className="absolute inset-0 bg-white/90 z-0" />
 
-    <div className="max-w-7xl mx-auto px-6 relative z-10">
-      <SectionHeading 
-        title="Our Specialized IT Services" 
-        subtitle="Digital Expertise" 
-      />
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        {services.map((service) => (
-          <ServiceCard 
-            key={service.id}
-            id={service.id}
-            image={service.image} 
-            title={service.title} 
-            desc={service.shortDesc}
-          />
-        ))}
-      </motion.div>
+    <div className="relative z-10  flex flex-col justify-center">
+      
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeading 
+          title="Our Specialized IT Services" 
+          subtitle="Digital Expertise" 
+        />
+      </div>
+
+      {/* Full height slider */}
+      <div className="relative flex-1 overflow-hidden mt-0">
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: "-50%" }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="flex gap-8 h-full items-center"
+        >
+          {[...services, ...services].map((service, idx) => (
+            <div key={idx} className="min-w-[300px] h-full flex items-center">
+              <ServiceCard 
+                id={service.id}
+                image={service.image} 
+                title={service.title} 
+                desc={service.shortDesc}
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
     </div>
   </section>
 );

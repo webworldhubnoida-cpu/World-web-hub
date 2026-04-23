@@ -6,10 +6,48 @@
     <link rel="icon" type="image/png" href="/gallery/favicon.png" />
     <link rel="preload" as="image" href="/gallery/b5.jpg" fetchpriority="high" />
     <title>World Web Hub | Digital Solutions</title>
+
+    <!-- ✅ Tawk.to Live Chat Script -->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      
+      // Hide the default widget bubble so we can use our custom button
+      Tawk_API.onLoad = function() {
+        if (Tawk_API.hideWidget) Tawk_API.hideWidget();
+      };
+
+      // Ensure the widget hides itself again if the user minimizes it
+      Tawk_API.onChatMinimized = function() {
+        if (Tawk_API.hideWidget) Tawk_API.hideWidget();
+      };
+
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        // IMPORTANT: Replace the ID below with your actual Tawk.to property ID
+        s1.src = "https://embed.tawk.to/67bc02e482322a19246d601d/1ilo6j6l7";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- React App -->
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- ✅ Google Translate Script -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>
-

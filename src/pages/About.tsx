@@ -55,27 +55,98 @@ export const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           <ValueCard 
-            Icon={Target} 
-            title="Our Mission" 
-            desc="To democratize high-end technology for businesses of all sizes, enabling them to compete in the global marketplace."
-          />
-          <ValueCard 
-            Icon={Award} 
-            title="Our Vision" 
-            desc="To be the most trusted technology partner worldwide, known for our integrity and groundbreaking solutions."
-          />
-          <ValueCard 
             Icon={Users} 
             title="Our Culture" 
             desc="We foster an environment of continuous learning, creativity, and mutual respect among our global workforce."
           />
+          <ValueCard 
+            Icon={CheckCircle2} 
+            title="Our Values" 
+            desc="Integrity, innovation, and excellence are at the heart of everything we do for our clients."
+          />
+          <ValueCard 
+            Icon={Award} 
+            title="Our Promise" 
+            desc="We promise to deliver exceptional results that exceed your expectations every single time."
+          />
+        </div>
+
+        {/* Our Mission Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative order-2 lg:order-1"
+          >
+            <img
+              src="https://images.pexels.com/photos/4174745/pexels-photo-4174745.jpeg"
+              alt="Our Mission"
+              className="rounded-3xl shadow-2xl relative z-10 w-full h-[400px] object-cover"
+            />
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-2xl z-0" />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="order-1 lg:order-2"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">
+              <Target size={16} />
+              OUR MISSION
+            </div>
+            <h3 className="text-4xl font-bold mb-6">Democratizing Technology for Every Business</h3>
+            <p className="text-xl text-text-dark/60 mb-6 leading-relaxed">
+              To democratize high-end technology for businesses of all sizes, enabling them to compete in the global marketplace. We strive to break down technical barriers and provide tools that empower growth.
+            </p>
+            <p className="text-lg text-text-dark/60 leading-relaxed">
+              Our mission is to ensure that innovation isn't just for the giants, but a tool for every visionary entrepreneur ready to make their mark.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Our Vision Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold mb-6">
+              <Award size={16} />
+              OUR VISION
+            </div>
+            <h3 className="text-4xl font-bold mb-6">Setting the Global Standard for Excellence</h3>
+            <p className="text-xl text-text-dark/60 mb-6 leading-relaxed">
+              To be the most trusted technology partner worldwide, known for our integrity and groundbreaking solutions. We envision a future where digital transformation is seamless and universally accessible.
+            </p>
+            <p className="text-lg text-text-dark/60 leading-relaxed">
+              We aim to redefine industry standards by consistently delivering products that aren't just functional, but revolutionary in their impact on business success.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img
+              src="/gallery/b2.jpg"
+              alt="Our Vision"
+              className="rounded-3xl shadow-2xl relative z-10 w-full h-[400px] object-cover"
+            />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 rounded-2xl z-0" />
+          </motion.div>
         </div>
 
         {/* Timeline Section */}
         <div className="bg-white/50 rounded-[40px] p-12 glass">
           <h3 className="text-3xl font-bold text-center mb-16">The History of Evolution</h3>
           <div className="relative border-l-2 border-primary/20 ml-4 md:ml-0 md:flex md:border-l-0 md:border-t-2 md:justify-between">
-            <TimelineItem year="2016" title="The Beginning" desc="Started with 3 developers in a co-working space." />
+            <TimelineItem year="2015" title="The Beginning" desc="Started with 3 developers in a co-working space." />
             <TimelineItem year="2018" title="Expansion" desc="Opened our second branch and hit 50+ staff." />
             <TimelineItem year="2021" title="Global Reach" desc="Started serving clients across 20+ countries." />
             <TimelineItem year="2024" title="Industry Leader" desc="Recognized as one of the fastest growing IT companies." />

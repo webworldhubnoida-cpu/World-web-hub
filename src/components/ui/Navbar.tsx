@@ -9,8 +9,11 @@ import { useModal } from "./ModalContext";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Services", path: "/services" },
-  { name: "Projects", path: "/projects" },
+  { name: "Our Services", path: "/services" },
+  { name: "Our Projects", path: "/projects" },
+  { name: "Video", path: "/videos" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Pricing", path: "/pricing" },
   { name: "Branches", path: "/branches" },
   { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },

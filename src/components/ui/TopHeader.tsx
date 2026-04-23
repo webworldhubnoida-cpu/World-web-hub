@@ -17,39 +17,48 @@ const PinterestP = ({ size = 14 }) => (
 
 export const TopHeader = () => {
   return (
-    <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-gray-300 text-sm hidden lg:block">
-      <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+    <div className="bg-gradient-to-r from-slate-950 to-slate-900 text-gray-200 text-[13px] hidden lg:block border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-6 py-2.5 flex justify-between items-center">
 
         {/* Left Section */}
-        <div className="flex items-center gap-6">
-          <a href="tel:+919971001036" className="flex items-center gap-2 hover:text-white transition">
+        <div className="flex items-center gap-8">
+          <a href="tel:+919971001036" className="flex items-center gap-2.5 hover:text-primary transition-colors">
             <Phone size={14} className="text-primary" />
-            <span className="font-medium">+91 9971001036</span>
+            <span className="font-semibold tracking-tight">+91 9971001036</span>
           </a>
 
-          <a href="mailto:info@webworldhub.in" className="flex items-center gap-2 hover:text-white transition">
+          <a href="mailto:info@webworldhub.in" className="flex items-center gap-2.5 hover:text-primary transition-colors">
             <Mail size={14} className="text-primary" />
-            <span className="font-medium">info@webworldhub.in</span>
+            <span className="font-semibold tracking-tight">info@webworldhub.in</span>
           </a>
 
           {/* Divider */}
-          <div className="h-4 w-px bg-white/20"></div>
+          <div className="h-4 w-px bg-white/10"></div>
 
           {/* Business Info */}
-          <div className="flex items-center gap-4 text-gray-400">
-            <span>GSTIN: <span className="text-white">09ABYFM3139K1ZH</span></span>
-            <span>UDYAM: <span className="text-white">UP-02-0005885</span></span>
+          <div className="flex items-center gap-6 text-gray-400">
+            <span className="flex items-center gap-1.5">
+              <span className="text-[11px] uppercase tracking-wider font-bold opacity-60">GSTIN:</span>
+              <span className="text-white font-bold tracking-wide">09ABYFM3139K1ZH</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-[11px] uppercase tracking-wider font-bold opacity-60">UDYAM:</span>
+              <span className="text-white font-bold tracking-wide">UP-02-0005885</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-white font-bold tracking-wide">ISO 900:2015</span>
+            </span>
           </div>
         </div>
 
         {/* Right Section */}
         <div className="flex items-center gap-3">
-          <SocialIcon href="#" Icon={Facebook} />
-          <SocialIcon href="#" Icon={Instagram} />
-          <SocialIcon href="#" Icon={Linkedin} />
-          <SocialIcon href="#" Icon={Youtube} />
-          <SocialIcon href="#" Icon={PinterestP} />
-          <SocialIcon href="#" Icon={Twitter} />
+          <SocialIcon href="https://www.facebook.com/webworldhubindia/" Icon={Facebook} />
+          <SocialIcon href="https://www.instagram.com/webworldhub" Icon={Instagram} />
+          <SocialIcon href="https://www.linkedin.com/in/webworldhub/" Icon={Linkedin} />
+          <SocialIcon href="https://www.youtube.com/@webworldhub" Icon={Youtube} />
+          <SocialIcon href="https://in.pinterest.com/webworldhub/" Icon={PinterestP} />
+          <SocialIcon href="https://x.com/webworldhub" Icon={Twitter} />
         </div>
 
       </div>

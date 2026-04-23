@@ -6,12 +6,12 @@ import { AssociateCard } from "./HomeItems";
 const associates = [
   { name: "GoDaddy", image: "https://logos.hunter.io/godaddy.com" },
   { name: "Resellerclub", image: "https://logos.hunter.io/resellerclub.com" },
-  { name: "Google My Business", image: "https://logos.hunter.io/google.com" },
+  { name: "Google My Business", image: "https://th.bing.com/th/id/OIP.ZyeNiRtdZJluzHa44rbayAHaEK?w=319&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3" },
   { name: "Hostinger", image: "https://logos.hunter.io/hostinger.com" },
   { name: "Neonet", image: "https://www.visa.com.mx/dam/VCOM/regional/lac/SPA/Default/Products/visa-direct/neonet-logo-800x450.jpg" },
-  { name: "Google Ads", image: "https://logos.hunter.io/google.com" },
+  { name: "Google Ads", image: "https://th.bing.com/th/id/OIP.VppzUut7CxEyvfrChOPw6wHaEn?w=281&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3" },
   { name: "Google", image: "https://logos.hunter.io/google.com" },
-  { name: "Google AdSense", image: "https://logos.hunter.io/google.com" },
+  { name: "Google AdSense", image: "https://th.bing.com/th/id/OIP.KIyNKuTOsjIRDVy5p3P5qgHaHa?w=155&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3" },
   { name: "Facebook", image: "https://static.vecteezy.com/system/resources/previews/018/930/698/original/facebook-logo-facebook-icon-transparent-free-png.png" },
   { name: "Twitter", image: "https://logos.hunter.io/twitter.com" },
   { name: "Instagram", image: "https://logos.hunter.io/instagram.com" },
@@ -44,7 +44,7 @@ export const AssociatesMarquee = () => (
         }}
         viewport={{ once: false }}
         transition={{
-          duration: 40,
+          duration: 80,
           repeat: Infinity,
           ease: "linear",
         }}
