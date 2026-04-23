@@ -16,7 +16,7 @@ export const FAQItem = ({ question, answer }: { question: string; answer: string
         </div>
       </div>
       {isOpen && (
-        <div className="px-6 pb-6 text-text-dark/60 leading-relaxed font-medium">
+        <div className="px-6 pb-6 text-slate-900/60 leading-relaxed font-medium">
           {answer}
         </div>
       )}
@@ -34,7 +34,7 @@ export const TechSkill = ({ title, icon, skills }: { title: string; icon: any; s
     </div>
     <div className="flex flex-wrap gap-2">
       {skills.map((skill) => (
-        <span key={skill} className="px-3 py-1 bg-bg-light rounded-full text-xs font-semibold text-text-dark/70">
+        <span key={skill} className="px-3 py-1 bg-bg-light rounded-full text-xs font-semibold text-slate-900/70 border border-slate-900/5">
           {skill}
         </span>
       ))}
@@ -50,32 +50,35 @@ export const BlogCard = ({ image, title, date }: { image: string; title: string;
         alt={title} 
         width="400"
         height="192"
-        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform" 
+        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
         referrerPolicy="no-referrer" 
         loading="lazy"
       />
     </div>
     <div className="p-6">
-      <p className="text-xs text-text-dark/50 font-medium mb-2">{date}</p>
+      <p className="text-xs text-slate-900/50 font-medium mb-2">{date}</p>
       <h4 className="text-lg font-bold mb-4 group-hover:text-primary transition-colors">{title}</h4>
-      <button className="text-primary font-bold text-sm flex items-center gap-2">Read More <ArrowRight size={16} /></button>
+      <button className="text-primary font-bold text-sm flex items-center gap-2 group/btn">
+        Read More 
+        <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+      </button>
     </div>
   </Card>
 );
 
 export const TestimonialCard = ({ quote, author, role, image }: { quote: string; author: string; role: string; image?: string }) => (
   <Card className="relative p-10 w-[320px] min-h-[500px] h-auto flex flex-col justify-between group hover:border-primary/50 transition-all duration-500 bg-white/80 backdrop-blur-sm whitespace-normal">
-    <div className="absolute top-8 right-10 text-primary/10 group-hover:text-primary/20 transition-colors">
+    <div className="absolute top-8 right-10 text-primary/5 group-hover:text-primary/10 transition-colors">
       <Layout size={80} />
     </div>
     
     <div className="relative z-10 mb-8">
       <div className="flex gap-1 mb-6">
         {[1, 2, 3, 4, 5].map((star) => (
-          <span key={star} className="text-yellow-400 text-sm">★</span>
+          <span key={star} className="text-highlight text-sm">★</span>
         ))}
       </div>
-      <p className="text-lg font-medium text-text-dark italic leading-relaxed">
+      <p className="text-lg font-medium text-slate-900 italic leading-relaxed">
         "{quote}"
       </p>
     </div>
@@ -93,7 +96,7 @@ export const TestimonialCard = ({ quote, author, role, image }: { quote: string;
         />
       </div>
       <div className="w-full">
-        <h4 className="font-black text-text-dark text-lg break-words px-2">{author}</h4>
+        <h4 className="font-black text-slate-900 text-lg break-words px-2">{author}</h4>
         <p className="text-xs text-primary font-black uppercase tracking-widest mt-1 break-words px-2">{role}</p>
       </div>
     </div>
@@ -114,19 +117,19 @@ export const AssociateCard = ({ name, image }: { name: string; image: string; ke
       />
     </div>
     <div className="flex flex-col items-center">
-      <h4 className="font-bold text-text-dark tracking-tight text-sm uppercase">{name}</h4>
-      <p className="text-[9px] text-text-dark/40 uppercase font-black tracking-widest leading-none mt-2">Verified Partner</p>
+      <h4 className="font-bold text-slate-900 tracking-tight text-sm uppercase">{name}</h4>
+      <p className="text-[9px] text-slate-900/40 uppercase font-black tracking-widest leading-none mt-2">Verified Partner</p>
     </div>
   </Card>
 );
 
 export const TimelineItem = ({ year, title, desc }: { year: string; title: string; desc: string }) => (
   <div className="mb-10 md:mb-0 md:mt-10 relative md:w-1/5">
-    <div className="absolute -left-[9px] md:left-1/2 md:-top-[9px] md:transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-bg-light" />
+    <div className="absolute -left-[9px] md:left-1/2 md:-top-[9px] md:transform md:-translate-x-1/2 w-4 h-4 rounded-full gradient-primary border-4 border-bg-light shadow-lg shadow-primary/20" />
     <div className="ml-8 md:ml-0 md:text-center px-4">
-      <span className="text-primary font-bold">{year}</span>
-      <h5 className="font-bold text-lg mt-1">{title}</h5>
-      <p className="text-sm text-text-dark/60 mt-2 italic">{desc}</p>
+      <span className="text-primary font-black text-xl">{year}</span>
+      <h5 className="font-bold text-lg mt-1 text-slate-900">{title}</h5>
+      <p className="text-sm text-slate-900/60 mt-2 italic">{desc}</p>
     </div>
   </div>
 );
@@ -139,11 +142,11 @@ export const TeamMember = ({ name, role, image, alt }: { name: string; role: str
         alt={alt || name} 
         width="300"
         height="288"
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         referrerPolicy="no-referrer"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6">
+      <div className="absolute inset-0 gradient-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6">
         <div className="flex gap-4">
           {/* Social icons could go here */}
         </div>
@@ -151,7 +154,7 @@ export const TeamMember = ({ name, role, image, alt }: { name: string; role: str
     </div>
     <div className="p-6 pt-0">
       <h4 className="text-xl font-bold group-hover:text-primary transition-colors">{name}</h4>
-      <p className="text-sm text-text-dark/60 font-bold uppercase tracking-widest mt-1">{role}</p>
+      <p className="text-sm text-slate-900/60 font-bold uppercase tracking-widest mt-1">{role}</p>
     </div>
   </Card>
 );
@@ -159,10 +162,10 @@ export const TeamMember = ({ name, role, image, alt }: { name: string; role: str
 export const BranchItem = ({ city, id }: { city: string; id: string }) => (
   <Link to={`/branch/${id}`} className="block">
     <div className="glass p-4 rounded-2xl flex items-center gap-4 hover:border-primary/30 transition-all group h-full">
-      <div className="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform">
+      <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform">
         <Globe size={20} />
       </div>
-      <span className="font-bold text-text-dark tracking-tight">{city}</span>
+      <span className="font-bold text-slate-900 tracking-tight">{city}</span>
     </div>
   </Link>
 );

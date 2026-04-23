@@ -15,8 +15,13 @@ const containerVariants = {
 };
 
 export const AboutHighlights = () => (
-  <section className="py-24 bg-bg-light">
-    <div className="max-w-7xl mx-auto px-6">
+  <section className="py-24 bg-white relative overflow-hidden">
+    {/* Decorative Elements */}
+    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+    <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 blur-[100px] rounded-full" />
+    <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/5 blur-[100px] rounded-full" />
+
+    <div className="max-w-7xl mx-auto px-6 relative z-10">
       <SectionHeading 
         title="Vision, Mission & Our Core Values" 
         subtitle="The World Web Hub Ethos" 

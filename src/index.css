@@ -1,18 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #7C3AED;
-  --color-secondary: #4F46E5;
-  --color-accent: #22D3EE;
-  --color-bg-light: #F5F3FF;
-  --color-text-dark: #1E1B4B;
+  --color-primary: #1E3A8A;
+  --color-secondary: #16A34A;
+  --color-accent: #DC2626;
+  --color-highlight: #C9A34E;
+  --color-bg-dark: #000000;
+  --color-bg-light: #FFFFFF;
+  --color-neutral-gray: #2F2F2F;
+  --color-neutral-silver: #C0C0C0;
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-text-dark: #0F172A;
   
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-bg-light text-text-dark font-sans selection:bg-primary/30 antialiased;
+    @apply bg-bg-light text-slate-900 font-sans selection:bg-primary/30 antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -22,19 +28,60 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/70 backdrop-blur-[12px] border border-white/40 shadow-[0_20px_40px_rgba(30,27,75,0.05)];
+    @apply bg-white/70 backdrop-blur-[12px] border border-white/40 shadow-[0_20px_40px_rgba(30,58,138,0.05)];
   }
   
   .glass-dark {
     @apply bg-black/40 backdrop-blur-[12px] border border-white/10 shadow-xl;
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  .gradient-primary {
+    background: linear-gradient(135deg, #1E3A8A, #16A34A);
+  }
+
+  .gradient-dark-hero {
+    background: linear-gradient(135deg, #000000, #1E3A8A);
+  }
+
+  .gradient-premium {
+    background: linear-gradient(135deg, #C9A34E, #FFD700);
+  }
+
+  .gradient-subtle-bg {
+    background: linear-gradient(180deg, #0F172A, #1E293B);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #1E3A8A, #DC2626);
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-primary via-secondary to-accent;
+    background: linear-gradient(135deg, #1E3A8A, #16A34A);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1E3A8A, #16A34A);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(30, 58, 138, 0.3);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px rgba(22, 163, 74, 0.3);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 25px rgba(30, 58, 138, 0.5);
+    transform: scale(1.02);
+  }
+
+  .border-gradient {
+    border: 1px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, #1E3A8A, #16A34A);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
   }
 
   .hero-tag {

@@ -69,30 +69,30 @@ export const Pricing = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className={`relative h-full flex flex-col ${plan.recommended ? "border-primary shadow-2xl shadow-primary/20 scale-105" : "border-transparent"}`}>
+              <Card className={`relative h-full flex flex-col p-8 ${plan.recommended ? "border-primary shadow-2xl shadow-primary/20 scale-105" : "border-slate-100 bg-white shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300"}`}>
                 {plan.recommended && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 gradient-bg text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full z-10">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 gradient-primary text-white text-[10px] font-bold uppercase tracking-widest px-6 py-2 rounded-full z-10 shadow-lg shadow-primary/20">
                     Most Popular
                   </div>
                 )}
                 
                 <div className="mb-8">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${plan.recommended ? "gradient-bg text-white" : "bg-primary/10 text-primary"}`}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${plan.recommended ? "gradient-primary text-white shadow-lg shadow-primary/20" : "bg-primary/5 text-primary"}`}>
                     <plan.icon size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold">{plan.name}</h3>
-                  <p className="text-sm text-text-dark/50 mt-1 font-medium italic">{plan.tagline}</p>
+                  <h3 className="text-2xl font-black tracking-tight">{plan.name}</h3>
+                  <p className="text-sm text-slate-900/60 mt-1 font-bold uppercase tracking-wider">{plan.tagline}</p>
                 </div>
 
                 <div className="mb-8">
-                  <span className="text-5xl font-bold">{plan.price}</span>
-                  {plan.price !== "Custom" && <span className="text-text-dark/40 text-lg ml-2">/ project</span>}
+                  <span className="text-5xl font-black tracking-tighter text-slate-900">{plan.price}</span>
+                  {plan.price !== "Custom" && <span className="text-slate-900/40 text-lg ml-2 font-bold tracking-tight">/ project</span>}
                 </div>
 
                 <ul className="space-y-4 mb-10 flex-grow">
                   {plan.features.map(f => (
-                    <li key={f} className="flex items-center gap-3 text-sm font-medium">
-                      <div className="w-5 h-5 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center flex-shrink-0">
+                    <li key={f} className="flex items-center gap-3 text-sm font-bold text-slate-900/70">
+                      <div className="w-5 h-5 rounded-full bg-secondary/10 text-secondary flex items-center justify-center flex-shrink-0">
                         <Check size={12} strokeWidth={4} />
                       </div>
                       {f}
@@ -100,7 +100,7 @@ export const Pricing = () => {
                   ))}
                 </ul>
 
-                <Button variant={plan.recommended ? "primary" : "outline"} className="w-full">
+                <Button variant={plan.recommended ? "primary" : "outline"} className="w-full rounded-full py-4">
                   Choose Plan
                 </Button>
               </Card>

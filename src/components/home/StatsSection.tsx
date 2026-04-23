@@ -49,7 +49,7 @@ const StatItem = ({ value, label, delay = 0 }: { value: string; label: string; d
 );
 
 export const StatsSection = () => (
-  <section className="py-24 gradient-bg text-white relative overflow-hidden">
+  <section className="py-24 gradient-subtle-bg text-white relative overflow-hidden">
     {/* Decorative background elements */}
     <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
       <div className="absolute top-[-10%] left-[-5%] w-64 h-64 bg-white blur-[100px] rounded-full" />

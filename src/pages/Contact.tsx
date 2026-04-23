@@ -9,7 +9,8 @@ export const Contact = () => {
     <div 
       className="relative pt-32 pb-24 bg-cover bg-center bg-no-repeat"
       style={{ 
-        backgroundImage: "url('/gallery/b9.jpg')"
+        backgroundImage: "url('/gallery/b9.jpg')",
+        backgroundAttachment: "fixed"
       }}
     >
       {/* Overlay for better readability */}

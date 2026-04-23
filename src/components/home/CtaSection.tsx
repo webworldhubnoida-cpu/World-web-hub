@@ -13,7 +13,7 @@ export const CtaSection = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="glass gradient-bg p-12 rounded-[40px] text-center text-white relative overflow-hidden"
+          className="glass gradient-primary p-12 rounded-[40px] text-center text-white relative overflow-hidden"
         >
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Scale Your Business?</h2>

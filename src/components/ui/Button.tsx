@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "white";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "white" | "premium" | "accent";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
@@ -25,11 +25,13 @@ export const Button = ({
   const baseStyles = "inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    primary: "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/25 rounded-[16px] relative overflow-hidden",
-    secondary: "bg-white text-primary border-2 border-primary hover:bg-primary/5 rounded-[16px]",
+    primary: "gradient-primary text-white shadow-lg shadow-primary/25 rounded-[16px] relative overflow-hidden",
+    secondary: "bg-secondary text-white hover:bg-secondary/90 shadow-lg shadow-secondary/25 rounded-[16px]",
     outline: "border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-[16px]",
     ghost: "bg-transparent text-primary hover:bg-primary/10 rounded-[12px]",
     white: "bg-white text-primary hover:bg-white/90 shadow-xl rounded-[16px] relative overflow-hidden",
+    premium: "gradient-premium text-black font-bold shadow-lg shadow-highlight/25 rounded-[16px] relative overflow-hidden",
+    accent: "gradient-accent text-white shadow-lg shadow-accent/25 rounded-[16px] relative overflow-hidden",
   };
 
   const sizes = {
@@ -43,7 +45,7 @@ export const Button = ({
   const buttonContent = (
     <>
       <span className="relative z-10">{children}</span>
-      {(variant === "primary" || variant === "white") && (
+      {(variant === "primary" || variant === "white" || variant === "premium" || variant === "accent" || variant === "secondary") && (
         <motion.div
           initial={{ x: "-100%", skewX: -15 }}
           whileHover={{ x: "100%" }}

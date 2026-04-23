@@ -13,6 +13,7 @@ import { ScrollToTop } from "./hooks/ScrollToTop";
 import { Loader } from "./components/ui/Loader";
 import { motion, AnimatePresence } from "motion/react";
 import { ModalProvider } from "./components/ui/ModalContext";
+import { FloatingButtons } from "./components/ui/FloatingButtons";
 
 // Lazy Pages
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
@@ -26,7 +27,7 @@ const Pricing = lazy(() => import("./pages/Pricing").then(module => ({ default: 
 const Blog = lazy(() => import("./pages/Blog").then(module => ({ default: module.Blog })));
 const Careers = lazy(() => import("./pages/Careers").then(module => ({ default: module.Careers })));
 const TechStack = lazy(() => import("./pages/TechStack").then(module => ({ default: module.TechStack })));
-const CaseStudies = lazy(() => import("./pages/CaseStudies").then(module => ({ default: module.CaseStudies })));
+const Certificates = lazy(() => import("./pages/Certificates").then(module => ({ default: module.Certificates })));
 const Clients = lazy(() => import("./pages/Clients").then(module => ({ default: module.Clients })));
 const Branches = lazy(() => import("./pages/Branches").then(module => ({ default: module.Branches })));
 const Associates = lazy(() => import("./pages/Associates").then(module => ({ default: module.Associates })));
@@ -64,7 +65,7 @@ function AppContent() {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/tech-stack" element={<TechStack />} />
-                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/certificates" element={<Certificates />} />
                 <Route path="/clients" element={<Clients />} />
                 <Route path="/branches" element={<Branches />} />
                 <Route path="/branch/:id" element={<BranchDetail />} />
@@ -76,6 +77,7 @@ function AppContent() {
       </main>
 
       <Footer />
+      <FloatingButtons />
       <BackToTop />
     </div>
   );
