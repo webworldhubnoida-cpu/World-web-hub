@@ -9,14 +9,18 @@ export const FloatingButtons = () => {
       <motion.button
         onClick={() => {
           const tawk = (window as any).Tawk_API;
-          if (tawk && typeof tawk.toggle === 'function') {
-            // If hidden, show it first
-            if (typeof tawk.showWidget === 'function') {
-              tawk.showWidget();
-            }
+          if (tawk && typeof tawk.maximize === 'function') {
+            tawk.maximize();
+          } else if (tawk && typeof tawk.toggle === 'function') {
             tawk.toggle();
           } else {
-            console.warn("Tawk.to chat is not yet loaded or initialized.");
+            // Fallback for when Tawk is still loading
+            const tawkScript = document.querySelector('script[src*="tawk.to"]');
+            if (!tawkScript) {
+              console.error("Tawk.to script not found");
+            } else {
+              alert("Chat is initializing... Please try again in a few seconds.");
+            }
           }
         }}
         initial={{ opacity: 0, scale: 0.5, y: 20 }}

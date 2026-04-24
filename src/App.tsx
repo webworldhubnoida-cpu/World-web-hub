@@ -35,12 +35,14 @@ const Branches = lazy(() => import("./pages/Branches").then(module => ({ default
 const Associates = lazy(() => import("./pages/Associates").then(module => ({ default: module.Associates })));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail").then(module => ({ default: module.ServiceDetail })));
 const BranchDetail = lazy(() => import("./pages/BranchDetail").then(module => ({ default: module.BranchDetail })));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy").then(module => ({ default: module.PrivacyPolicy })));
+const TermsConditions = lazy(() => import("./pages/TermsConditions").then(module => ({ default: module.TermsConditions })));
 
 function AppContent() {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen bg-bg-light overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-bg-light overflow-x-hidden relative">
       <ScrollProgressBar />
       <Navbar />
       
@@ -74,6 +76,8 @@ function AppContent() {
                 <Route path="/branches" element={<Branches />} />
                 <Route path="/branch/:id" element={<BranchDetail />} />
                 <Route path="/associates" element={<Associates />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-conditions" element={<TermsConditions />} />
               </Routes>
             </Suspense>
           </motion.div>

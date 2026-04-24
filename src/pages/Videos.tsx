@@ -17,47 +17,55 @@ const videos = [
 
 export const Videos = () => {
   return (
-    <div className="pt-12 pb-24 min-h-screen bg-bg-light">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="pt-20 pb-24 bg-bg-light min-h-screen">
+      <div className="max-w-6xl mx-auto px-6">
+
         <SectionHeading 
           title="Our Video Showcase" 
           subtitle="Watch Our Work in Action" 
           centered
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+
           {videos.map((video) => (
-            <motion.div 
+            <motion.div
               key={video.id}
-              whileHover={{ y: -10 }}
-              className="glass rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white group"
+              whileHover={{ y: -6 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all group border"
             >
-              <div className="aspect-[9/16] relative bg-black flex items-center justify-center">
+
+              {/* VIDEO */}
+              <div className="aspect-video relative bg-black">
                 <iframe
-                  src={`https://www.youtube.com/embed/${video.id}?autoplay=0&rel=0`}
+                  src={`https://www.youtube.com/embed/${video.id}`}
                   title={video.title}
-                  className=""
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  className="w-full h-full"
                   allowFullScreen
-                ></iframe>
-                
-                {/* Overlay Play Icon (Visible when not playing) */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity">
-                   <div className="w-20 h-20 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30">
-                      <Play size={40} fill="currentColor" />
-                   </div>
+                />
+
+                {/* Play Icon Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition">
+                  <div className="w-14 h-14 bg-black/40 backdrop-blur rounded-full flex items-center justify-center">
+                    <Play size={24} className="text-white ml-1" fill="white" />
+                  </div>
                 </div>
               </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-black text-text-dark mb-2 uppercase tracking-tight group-hover:text-primary transition-colors">
+
+              {/* CONTENT */}
+              <div className="p-4">
+                <h3 className="text-base font-bold text-text-dark line-clamp-2 group-hover:text-primary transition">
                   {video.title}
                 </h3>
-                <p className="text-text-dark/60 font-medium leading-relaxed">
+                <p className="text-sm text-text-dark/60 mt-1 line-clamp-2">
                   {video.description}
                 </p>
               </div>
+
             </motion.div>
           ))}
+
         </div>
       </div>
     </div>

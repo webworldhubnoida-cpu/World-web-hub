@@ -109,7 +109,7 @@ export const Hero = () => {
               alt="background"
               referrerPolicy="no-referrer"
               loading="eager"
-              {...({ fetchpriority: "high" } as any)}
+              fetchPriority="high"
             />
             {/* Professional Overlay */}
             <div className="absolute inset-0 gradient-dark-hero opacity-80" />

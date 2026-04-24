@@ -3,15 +3,15 @@ import { SectionHeading } from "../components/ui/SectionHeading";
 import { Image as ImageIcon, Maximize2 } from "lucide-react";
 
 const galleryImages = [
-  { src: "/gallery/b1.jpg", title: "Corporate Excellence", category: "Web Design" },
-  { src: "/gallery/b2.jpg", title: "Modern Architecture", category: "Industrial" },
-  { src: "/gallery/b3.jpg", title: "Digital Strategy", category: "Business" },
-  { src: "/gallery/b4.jpg", title: "Creative Workspace", category: "Corporate" },
-  { src: "/gallery/b5.jpg", title: "Mobile Innovation", category: "App Dev" },
-  { src: "/gallery/b6.jpg", title: "Cloud Solutions", category: "Tech Stack" },
-  { src: "/gallery/b7.jpg", title: "Global Logistics", category: "Logistics" },
-  { src: "/gallery/b8.jpg", title: "Marketing Insights", category: "Marketing" },
-  { src: "/gallery/b9.jpg", title: "Contact Support", category: "Support" },
+  { src: "/gallery/a.jpeg", title: "Corporate Excellence", category: "Web Design" },
+  { src: "/gallery/b.jpeg", title: "Modern Architecture", category: "Industrial" },
+  { src: "/gallery/c.jpeg", title: "Digital Strategy", category: "Business" },
+  { src: "/gallery/d.jpeg", title: "Creative Workspace", category: "Corporate" },
+  { src: "/gallery/e.jpeg", title: "Mobile Innovation", category: "App Dev" },
+  { src: "/gallery/f.jpeg", title: "Cloud Solutions", category: "Tech Stack" },
+  { src: "/gallery/g.jpeg", title: "Global Logistics", category: "Logistics" },
+  { src: "/gallery/h.jpeg", title: "Marketing Insights", category: "Marketing" },
+  { src: "/gallery/i.jpeg", title: "Contact Support", category: "Support" },
 ];
 
 export const Gallery = () => {
