@@ -21,9 +21,16 @@ import { Contact } from "./Contact";
 import { FadeIn } from "../components/ui/FadeIn";
 import {Listing} from "../components/home/Listing";
 
+import { SEO } from "../components/ui/SEO";
+
 export const Home = () => {
   return (
     <div className="overflow-hidden">
+      <SEO 
+        title="Web World Hub | Web Design Company in India | Web Development, SEO, Digital Marketing"
+        description="Web World Hub is a leading web design and development company in India offering web apps, SEO, SMO, ecommerce, B2B, B2C solutions, logo design, graphics design, Google Ads and Meta Ads services to grow your business online."
+        keywords="Web Design Company in India, Web Development Company India, Web Application Development India, SEO Services India, Digital Marketing Company India, Ecommerce Website Development India, B2B B2C Website Development, Google Ads Services India, Meta Ads Agency India, Logo Design Company India, Graphics Design Services India"
+      />
       <Hero />
       <FadeIn><WhoWeAre /></FadeIn>
       <FadeIn><AboutHighlights /></FadeIn>

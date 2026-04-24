@@ -6,11 +6,46 @@ import { Button } from "../components/ui/Button";
 import { services } from "../constants/services";
 import { useModal } from "../components/ui/ModalContext";
 
+import { SEO } from "../components/ui/SEO";
+
+const serviceMetaMapping: Record<string, { title: string; description: string }> = {
+  "website-design-development": {
+    title: "Web Design Company in India | Responsive Website Design - Web World Hub",
+    description: "Web World Hub offers professional web design services in India. Get responsive, user-friendly and creative website designs to grow your business online."
+  },
+  "ecommerce-development": {
+    title: "Ecommerce Website Development India | Online Store Solutions",
+    description: "Start your online business with ecommerce website development services in India. We build secure, scalable and user-friendly online stores."
+  },
+  "mobile-app-development": {
+    title: "Web Application Development Company India | Custom Web Apps",
+    description: "Build powerful and scalable web applications with Web World Hub. We offer custom web app development services in India for startups and enterprises."
+  },
+  "seo-services": {
+    title: "SEO Company India | Best Search Engine Optimization Services",
+    description: "Boost your website ranking with our expert SEO services in India. We offer on-page, off-page and technical SEO to increase traffic and sales."
+  },
+  "smo-services": {
+    title: "SMO Services India | Social Media Optimization Company",
+    description: "Grow your brand with professional SMO services in India. We manage social media platforms to increase engagement, followers and visibility."
+  },
+  "google-ads": {
+    title: "Google Ads Agency India | PPC & Adwords Management Services",
+    description: "Drive instant traffic and leads with Google Ads services in India. We manage PPC campaigns to maximize ROI and grow your business."
+  },
+  "logo-graphic-design": {
+    title: "Logo Design Company India | Professional Brand Logo Services",
+    description: "Create a unique brand identity with our logo design services in India. We design creative, professional and memorable logos for businesses."
+  }
+};
+
 export const ServiceDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const service = services.find((s) => s.id === id);
   const { openBookingModal } = useModal();
+
+  const meta = id ? serviceMetaMapping[id] : null;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,6 +65,12 @@ export const ServiceDetail = () => {
 
   return (
     <div className="pt-24 lg:pt-32 bg-bg-light min-h-screen">
+      {meta && (
+        <SEO 
+          title={meta.title}
+          description={meta.description}
+        />
+      )}
       {/* Hero Section */}
       <section className="relative h-[60vh] overflow-hidden">
         <img 

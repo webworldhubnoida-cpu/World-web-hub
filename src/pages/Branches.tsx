@@ -39,19 +39,24 @@ export const Branches = () => {
                          <p className="text-sm font-medium text-text-dark/70 leading-relaxed">{branch.address}</p>
                       </div>
                       <div className="flex gap-4 items-center">
-                         <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0"><Phone size={16} /></div>
-                         <p className="text-sm font-medium text-text-dark/70">{branch.phone}</p>
-                      </div>
-                      <div className="flex gap-4 items-center">
                          <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0"><Mail size={16} /></div>
                          <p className="text-sm font-medium text-text-dark/70">{branch.email}</p>
                       </div>
                    </div>
-                   <Link to={`/branch/${branch.id}`}>
-                    <Button variant="primary" className="w-full gap-2">
-                        View Branch <ExternalLink size={18} />
-                    </Button>
-                   </Link>
+                   <div className="flex flex-col gap-3">
+                     <Button 
+                       variant="outline" 
+                       href="tel:+919971001036"
+                       className="w-full gap-2"
+                     >
+                       <Phone size={18} />Call Us
+                     </Button>
+                     <Link to={`/branch/${branch.id}`} className="w-full">
+                      <Button variant="primary" className="w-full gap-2">
+                          View Branch <ExternalLink size={18} />
+                      </Button>
+                     </Link>
+                   </div>
                 </div>
               </Card>
             </motion.div>

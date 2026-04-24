@@ -217,4 +217,4 @@ export const testimonials: Testimonial[] = [
     role: "Client",
     image: "https://picsum.photos/id/83/200/200"
   }
-];                              
+];                                  

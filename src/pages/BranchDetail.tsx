@@ -5,10 +5,67 @@ import { ArrowLeft, MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-reac
 import { Button } from "../components/ui/Button";
 import { branches } from "../constants/branches";
 
+import { SEO } from "../components/ui/SEO";
+
+const branchMetaMapping: Record<string, { title: string; description: string; keywords: string }> = {
+  "central-delhi": {
+    title: "Web Design Company in Delhi NCR | SEO & Digital Marketing Services",
+    description: "Web World Hub is a top web design and digital marketing company in Delhi NCR offering web development, SEO, ecommerce and ads services.",
+    keywords: "Web Design Company Delhi, SEO Company Delhi NCR, Digital Marketing Delhi, Website Development Delhi"
+  },
+  "west-delhi": {
+    title: "Web Design Company in Delhi NCR | SEO & Digital Marketing Services",
+    description: "Web World Hub is a top web design and digital marketing company in Delhi NCR offering web development, SEO, ecommerce and ads services.",
+    keywords: "Web Design Company Delhi, SEO Company Delhi NCR, Digital Marketing Delhi, Website Development Delhi"
+  },
+  "south-delhi": {
+    title: "Web Design Company in Delhi NCR | SEO & Digital Marketing Services",
+    description: "Web World Hub is a top web design and digital marketing company in Delhi NCR offering web development, SEO, ecommerce and ads services.",
+    keywords: "Web Design Company Delhi, SEO Company Delhi NCR, Digital Marketing Delhi, Website Development Delhi"
+  },
+  "east-delhi": {
+    title: "Web Design Company in Delhi NCR | SEO & Digital Marketing Services",
+    description: "Web World Hub is a top web design and digital marketing company in Delhi NCR offering web development, SEO, ecommerce and ads services.",
+    keywords: "Web Design Company Delhi, SEO Company Delhi NCR, Digital Marketing Delhi, Website Development Delhi"
+  },
+  "north-delhi": {
+    title: "Web Design Company in Delhi NCR | SEO & Digital Marketing Services",
+    description: "Web World Hub is a top web design and digital marketing company in Delhi NCR offering web development, SEO, ecommerce and ads services.",
+    keywords: "Web Design Company Delhi, SEO Company Delhi NCR, Digital Marketing Delhi, Website Development Delhi"
+  },
+  "noida": {
+    title: "Web Development Company Noida | SEO & Digital Marketing",
+    description: "Top web development and SEO company in Noida offering website design, ecommerce and ads management services.",
+    keywords: "Web Development Noida, SEO Company Noida, Website Design Noida, Digital Marketing Noida"
+  },
+  "mumbai": {
+    title: "Web Development Company in Mumbai | SEO & Ecommerce Services",
+    description: "Get professional web development, SEO and ecommerce solutions in Mumbai with Web World Hub. Grow your business online with experts.",
+    keywords: "Web Development Mumbai, SEO Services Mumbai, Ecommerce Development Mumbai, Digital Marketing Mumbai"
+  },
+  "hyderabad": {
+    title: "Website Development Company Hyderabad | SEO & Ads Services",
+    description: "Professional website development and SEO services in Hyderabad. We help businesses grow with digital marketing and ads.",
+    keywords: "Website Development Hyderabad, SEO Services Hyderabad, Google Ads Hyderabad, Digital Marketing Hyderabad"
+  },
+  "jaipur": {
+    title: "Web Design Company Jaipur | SEO & Online Marketing",
+    description: "Get creative web design and SEO services in Jaipur. We provide complete digital marketing solutions for your business.",
+    keywords: "Web Design Jaipur, SEO Jaipur, Digital Marketing Jaipur, Website Development Jaipur"
+  },
+  "chandigarh": {
+    title: "Website Design Company Chandigarh | SEO & Ads Services",
+    description: "We offer website design, SEO and ads services in Chandigarh to help your business grow online effectively.",
+    keywords: "Website Design Chandigarh, SEO Company Chandigarh, Google Ads Chandigarh, Digital Marketing Chandigarh"
+  }
+};
+
 export const BranchDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const branch = branches.find((b) => b.id === id);
+
+  const meta = id ? branchMetaMapping[id] : null;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,6 +84,13 @@ export const BranchDetail = () => {
 
   return (
     <div className="pt-24 lg:pt-32 bg-bg-light min-h-screen">
+      {meta && (
+        <SEO 
+          title={meta.title}
+          description={meta.description}
+          keywords={meta.keywords}
+        />
+      )}
       <section className="relative h-[50vh] overflow-hidden">
     
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-center">
