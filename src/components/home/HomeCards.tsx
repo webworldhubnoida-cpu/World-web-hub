@@ -6,7 +6,7 @@ import { Card } from "../ui/Card";
 
 import { Link } from "react-router-dom";
 
-export const AboutCard = ({ Icon, title, desc }: { Icon: any; title: string; desc: string }) => (
+export const AboutCard = ({ Icon, title, desc }: { Icon: any; title: string; desc: string; key?: string | number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export const ServiceCard = ({
   </motion.div>
 );
 
-export const ProjectCard = ({ image, title, category }: { image: string; title: string; category: string }) => (
+export const ProjectCard = ({ image, title, category }: { image: string; title: string; category: string; key?: string | number }) => (
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}

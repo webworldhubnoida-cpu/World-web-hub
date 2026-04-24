@@ -10,6 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   target?: string;
   rel?: string;
+  download?: boolean | string;
 }
 
 export const Button = ({
@@ -20,6 +21,7 @@ export const Button = ({
   href,
   target,
   rel,
+  download,
   ...props
 }: ButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
@@ -64,6 +66,7 @@ export const Button = ({
         href={href}
         target={target}
         rel={rel || (target === "_blank" ? "noopener noreferrer" : undefined)}
+        download={download}
         className={classes}
       >
         {buttonContent}

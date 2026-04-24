@@ -7,19 +7,19 @@ interface FadeInProps {
   delay?: number;
   duration?: number;
   className?: string;
-  viewPortAmount?: number;
+  viewportAmount?: number;
   staggerChildren?: number;
 }
 
-export const FadeIn = ({
+export const FadeIn: React.FC<FadeInProps> = ({
   children,
   direction = "up",
   delay = 0,
   duration = 0.5,
   className = "",
-  viewPortAmount = 0.1,
+  viewportAmount = 0.1,
   staggerChildren = 0,
-}: FadeInProps) => {
+}) => {
   const shouldReduceMotion = useReducedMotion();
 
   const variants = {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle } from "lucide-react";
+import { GoogleTranslate } from "./GoogleTranslate";
 
 const WhatsAppIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -109,6 +110,7 @@ Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059
                 +91 9971001036
               </a>
             </li>
+          
 
           </ul>
         </div>
@@ -121,8 +123,6 @@ Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059
           <p className="text-white/40 text-sm">
             © 2026 World Web Hub. All rights reserved.
           </p>
-          
-          {/* Google Translate Element */}
           
         </div>
 

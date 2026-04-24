@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook } from "lucide-r
 import { useLocation } from "react-router-dom";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
+import { GoogleTranslate } from "../components/ui/GoogleTranslate";
 
 export const Contact = () => {
   const location = useLocation();
@@ -144,6 +145,12 @@ export const Contact = () => {
             </div>
           </div>
         )}
+
+        {/* ✅ Language Translation Option */}
+        <div className="mt-16 flex flex-col items-center border-t border-slate-200 pt-10">
+          <p className="text-sm text-slate-500 mb-4 font-medium uppercase tracking-widest">Select Language</p>
+          <GoogleTranslate id="google_translate_contact" />
+        </div>
       </div>
     </div>
   );
