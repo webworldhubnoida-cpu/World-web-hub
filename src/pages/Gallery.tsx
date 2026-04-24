@@ -16,7 +16,7 @@ const galleryImages = [
 
 export const Gallery = () => {
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-bg-light">
+    <div className="pt-12 pb-24 min-h-screen bg-bg-light">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading 
           title="Visual Experience" 

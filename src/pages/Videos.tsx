@@ -17,7 +17,7 @@ const videos = [
 
 export const Videos = () => {
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-bg-light">
+    <div className="pt-12 pb-24 min-h-screen bg-bg-light">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading 
           title="Our Video Showcase" 
@@ -36,7 +36,7 @@ export const Videos = () => {
                 <iframe
                   src={`https://www.youtube.com/embed/${video.id}?autoplay=0&rel=0`}
                   title={video.title}
-                  className="w-full h-full"
+                  className=""
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>

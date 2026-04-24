@@ -45,7 +45,7 @@ export const Contact = () => {
               <ContactInfo 
                 Icon={MapPin} 
                 title="Location" 
-                detail="Aligarh, Uttar Pradesh" 
+                detail="Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059" 
               />
             </div>
 
@@ -164,7 +164,7 @@ const MapCard = ({ title, url }: { title: string; url: string }) => (
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         title={title}
-        className="grayscale hover:grayscale-0 transition-all duration-500"
+        className=" transition-all duration-500"
       />
     </div>
   </Card>

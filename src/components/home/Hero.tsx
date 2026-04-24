@@ -87,7 +87,7 @@ export const Hero = () => {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="relative w-full h-[calc(100vh-110px)] lg:h-[calc(100vh-135px)] overflow-hidden bg-bg-dark mt-[110px] lg:mt-[135px]">
+    <section className="relative w-full h-[calc(100vh-110px)] lg:h-[calc(100vh-135px)] overflow-hidden bg-bg-dark">
       {/* Static Background Gradient - Better for performance than infinite animations */}
       <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full z-1" />
       <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-secondary/20 blur-[120px] rounded-full z-1" />

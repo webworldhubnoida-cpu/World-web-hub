@@ -44,7 +44,7 @@ function AppContent() {
       <ScrollProgressBar />
       <Navbar />
       
-      <main className="flex-grow">
+      <main className="flex-grow pt-[110px] lg:pt-[135px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

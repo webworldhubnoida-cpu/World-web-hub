@@ -71,7 +71,7 @@ export const Certificates = () => {
                       variant="outline" 
                       className="flex-1 rounded-full gap-2 border-primary text-primary hover:bg-primary hover:text-white"
                       href={cert.file}
-                      download
+                      download={true}
                     >
                       <Download size={18} />
                       Download

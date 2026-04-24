@@ -64,7 +64,7 @@ export const ServiceDetail = () => {
   }
 
   return (
-    <div className="pt-24 lg:pt-32 bg-bg-light min-h-screen">
+    <div className="bg-bg-light min-h-screen">
       {meta && (
         <SEO 
           title={meta.title}
