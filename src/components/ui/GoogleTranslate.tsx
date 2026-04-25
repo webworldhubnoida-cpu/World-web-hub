@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 export const GoogleTranslate = ({ id = "google_translate_element" }) => {
 
   useEffect(() => {
-    window.googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
+    (window as any).googleTranslateElementInit = () => {
+      new (window as any).google.translate.TranslateElement(
         {
           pageLanguage: "en",
           includedLanguages: "en,hi,es,fr,de,ar,zh-CN,bn,mr,ta,te",
@@ -25,9 +25,9 @@ export const GoogleTranslate = ({ id = "google_translate_element" }) => {
   }, [id]);
 
   // ✅ REAL WORKING LANGUAGE CHANGE
-  const changeLanguage = (lang) => {
+  const changeLanguage = (lang: string) => {
     const interval = setInterval(() => {
-      const select = document.querySelector(".goog-te-combo");
+      const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
       if (select) {
         select.value = lang;
         select.dispatchEvent(new Event("change"));
@@ -47,7 +47,7 @@ export const GoogleTranslate = ({ id = "google_translate_element" }) => {
         
         <select
           onChange={(e) => changeLanguage(e.target.value)}
-          className="w-full bg-transparent text-black outline-none cursor-pointer"
+          className="w-full bg-transparent text-white outline-none cursor-pointer [&>option]:text-black"
         >
           <option  value="">Select Language</option>
           <option value="en">English</option>
