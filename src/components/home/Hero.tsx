@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "../ui/Button";
 import { useModal } from "../ui/ModalContext";
+import { HeroForm } from "./HeroForm";
 const heroSlides = [
 
     {
@@ -118,8 +119,8 @@ export const Hero = () => {
         </AnimatePresence>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 h-full relative z-10 flex flex-col justify-center">
-        <div className="max-w-3xl">
+      <div className="max-w-7xl mx-auto px-6 h-full relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-3xl w-full lg:w-3/5">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -158,7 +159,7 @@ export const Hero = () => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className={`text-6xl md:text-[85px] leading-[0.95] mb-8 font-black text-white tracking-tighter`}
+                className={`text-5xl md:text-[75px] lg:text-[85px] leading-[0.95] mb-8 font-black text-white tracking-tighter`}
               >
                 {slide.title}<br />
                 <motion.span 
@@ -176,7 +177,7 @@ export const Hero = () => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className="text-xl text-white/60 max-w-xl leading-relaxed mb-12 font-medium"
+                className="text-lg md:text-xl text-white/60 max-w-xl leading-relaxed mb-10 font-medium"
               >
                 Elevating your digital presence through world-class engineering, strategic design, and innovative cloud solutions.
               </motion.p>
@@ -191,7 +192,7 @@ export const Hero = () => {
                 <Button 
                   size="lg" 
                   variant="primary"
-                  className="px-10 h-16 rounded-full text-lg shadow-2xl relative overflow-hidden group" 
+                  className="px-8 h-14 md:px-10 md:h-16 rounded-full text-lg shadow-2xl relative overflow-hidden group" 
                   onClick={openBookingModal}
                 >
                   Start Your Journey
@@ -200,7 +201,7 @@ export const Hero = () => {
                   <motion.div 
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-bg-dark transition-all duration-300"
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-bg-dark transition-all duration-300"
                   >
                     <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-current border-b-[6px] border-b-transparent ml-1" />
                   </motion.div>
@@ -209,6 +210,10 @@ export const Hero = () => {
               </motion.div>
             </motion.div>
           </AnimatePresence>
+        </div>
+
+        <div className="hidden lg:block w-full lg:w-2/5 max-w-md">
+          <HeroForm />
         </div>
       </div>
     </section>

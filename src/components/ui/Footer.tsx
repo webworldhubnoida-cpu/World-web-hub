@@ -147,20 +147,34 @@ Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059
       </div>
 
       {/* Bottom Bar */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/10 flex flex-col items-center gap-6">
+        
+        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <p className="text-white/40 text-sm">
+              © 2015 World Web Hub. All rights reserved.
+            </p>
+          </div>
 
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <p className="text-white/40 text-sm">
-            © 2026 World Web Hub. All rights reserved.
-          </p>
-         
+          <div className="flex gap-6 text-sm text-white/40">
+            <Link to="/WorkProcess" className="hover:text-white transition">Work Process</Link>
+            <Link to="/refund-policy" className="hover:text-white transition">Refund Policy</Link>
+            <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
+            <Link to="/terms-conditions" className="hover:text-white transition">Terms&Conditions</Link>
+          </div>
         </div>
 
-        <div className="flex gap-6 text-sm text-white/40">
-          <Link to="/privacy-policy"  className="hover:text-white transition">Privacy Policy</Link>
-          <Link to="/terms-conditions" className="hover:text-white transition">Terms&Conditions</Link>
+        <div className="text-white/30 text-[10px] md:text-xs font-medium tracking-widest uppercase flex items-center gap-2">
+          <span>Design & Development By</span>
+          <a 
+            href="https://www.webworldhub.co.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white/50 hover:text-primary transition-colors font-black"
+          >
+            Web World Hub
+          </a>
         </div>
-
       </div>
     </footer>
   );
