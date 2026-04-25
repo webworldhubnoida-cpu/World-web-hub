@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook, Loader2 } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   const location = useLocation();
@@ -15,6 +16,8 @@ export const Contact = () => {
     service: "Select Service",
     message: ""
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,22 +32,39 @@ export const Contact = () => {
       return;
     }
 
-    const text = `*New Inquiry from Web World Hub*%0A%0A` +
-      `*Name:* ${formData.fullName}%0A` +
-      `*Phone:* ${formData.phone}%0A` +
-      `*Email:* ${formData.email || "N/A"}%0A` +
-      `*Service:* ${formData.service}%0A` +
-      `*Message:* ${formData.message}`;
+    setIsSubmitting(true);
 
-    window.open(`https://wa.me/919971001036?text=${text}`, "_blank");
-    
-    // Clear form
-    setFormData({
-      fullName: "",
-      phone: "",
-      email: "",
-      service: "Select Service",
-      message: ""
+    const templateParams = {
+      from_name: formData.fullName,
+      from_phone: formData.phone,
+      from_email: formData.email,
+      service_type: formData.service,
+      message: formData.message,
+      to_email: "Info@webworldhub.in"
+    };
+
+    emailjs.send(
+      'YOUR_SERVICE_ID', // Replace with your Service ID
+      'YOUR_TEMPLATE_ID', // Replace with your Template ID
+      templateParams,
+      'YOUR_PUBLIC_KEY' // Replace with your Public Key
+    )
+    .then(() => {
+      alert("Message sent successfully!");
+      setFormData({
+        fullName: "",
+        phone: "",
+        email: "",
+        service: "Select Service",
+        message: ""
+      });
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Please try again later.");
+    })
+    .finally(() => {
+      setIsSubmitting(false);
     });
   };
 
@@ -109,13 +129,13 @@ export const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
 
               <div className="grid md:grid-cols-2 gap-4">
-                <input name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Full Name" className="input-style" />
-                <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className="input-style" />
+                <input name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Full Name" className="input-style" disabled={isSubmitting} />
+                <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className="input-style" disabled={isSubmitting} />
               </div>
 
-              <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="input-style" />
+              <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="input-style" disabled={isSubmitting} />
 
-              <select name="service" value={formData.service} onChange={handleChange} className="input-style">
+              <select name="service" value={formData.service} onChange={handleChange} className="input-style" disabled={isSubmitting}>
                 <option>Select Service</option>
                 <option>Website Development</option>
                 <option>App Development</option>
@@ -123,10 +143,22 @@ export const Contact = () => {
                 <option>Custom Software</option>
               </select>
 
-              <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="Message..." className="input-style" />
+              <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="Message..." className="input-style" disabled={isSubmitting} />
 
-              <Button className="w-full py-4 flex justify-center items-center gap-2">
-                <Send size={18} /> Send Message
+              <Button 
+                type="submit" 
+                className="w-full py-4 flex justify-center items-center gap-2"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} /> Send Message
+                  </>
+                )}
               </Button>
 
             </form>

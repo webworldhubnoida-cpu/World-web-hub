@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Send, Calendar, User, Mail, MessageSquare } from "lucide-react";
+import { X, Send, Calendar, User, Mail, MessageSquare, Loader2 } from "lucide-react";
 import { Button } from "./Button";
+import emailjs from "@emailjs/browser";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -16,6 +17,8 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
     brief: ""
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -29,22 +32,39 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       return;
     }
 
-    const message = `*New Consultation Booking from Web World Hub*%0A%0A` +
-      `*Name:* ${formData.fullName}%0A` +
-      `*Email:* ${formData.email || "N/A"}%0A` +
-      `*Service:* ${formData.service}%0A` +
-      `*Brief:* ${formData.brief}`;
+    setIsSubmitting(true);
 
-    window.open(`https://wa.me/919971001036?text=${message}`, "_blank");
-    
-    // Reset form and close
-    setFormData({
-      fullName: "",
-      email: "",
-      service: "Web Development",
-      brief: ""
+    const templateParams = {
+      from_name: formData.fullName,
+      from_email: formData.email,
+      service_type: formData.service,
+      project_brief: formData.brief,
+      to_email: "Info@webworldhub.in"
+    };
+
+    emailjs.send(
+      'YOUR_SERVICE_ID', // Replace with your Service ID
+      'YOUR_TEMPLATE_ID', // Replace with your Template ID
+      templateParams,
+      'YOUR_PUBLIC_KEY' // Replace with your Public Key
+    )
+    .then(() => {
+      alert("Consultation request sent successfully!");
+      setFormData({
+        fullName: "",
+        email: "",
+        service: "Web Development",
+        brief: ""
+      });
+      onClose();
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+      alert("Failed to send request. Please try again later.");
+    })
+    .finally(() => {
+      setIsSubmitting(false);
     });
-    onClose();
   };
 
   return (
@@ -94,6 +114,7 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                       placeholder="John Doe"
                       className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -109,6 +130,7 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                       onChange={handleChange}
                       placeholder="john@example.com"
                       className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -122,6 +144,7 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                       value={formData.service}
                       onChange={handleChange}
                       className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium appearance-none"
+                      disabled={isSubmitting}
                     >
                       <option>Web Development</option>
                       <option>Mobile App Development</option>
@@ -144,12 +167,25 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                       placeholder="Tell us about your project..."
                       className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium resize-none"
                       required
+                      disabled={isSubmitting}
                     ></textarea>
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full h-14 rounded-2xl text-lg gap-3 mt-4">
-                  Confirm Booking <Send size={18} />
+                <Button 
+                  type="submit" 
+                  className="w-full h-14 rounded-2xl text-lg gap-3 mt-4"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" /> Sending...
+                    </>
+                  ) : (
+                    <>
+                      Confirm Booking <Send size={18} />
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
