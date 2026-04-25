@@ -18,7 +18,7 @@ const PinterestP = ({ size = 18 }) => (
 
 export const Footer = () => {
   return (
-    <footer className="relative text-white pt-20 pb-10 border-t border-white/10 overflow-hidden">
+    <footer className="footer relative text-white pt-20 pb-10 border-t border-white/10 overflow-hidden">
 
       {/* 🌈 Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-0" />
@@ -47,7 +47,7 @@ export const Footer = () => {
             We help brands grow with powerful technology and design.
           </p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 custom-scrollbar">
             <SocialIcon Icon={Facebook} href="https://www.facebook.com/webworldhubindia/" />
             <SocialIcon Icon={Twitter} href="https://x.com/webworldhub" />
             <SocialIcon Icon={Instagram} href="https://www.instagram.com/webworldhub" />
@@ -67,6 +67,12 @@ export const Footer = () => {
             <FooterLink to="/projects">Portfolio</FooterLink>
             <FooterLink to="/tech-stack">Tech Stack</FooterLink>
             <FooterLink to="/certificates">Certificates</FooterLink>
+
+             <div className="flex items-center  ">
+              <span className="text-xs text-white/60 mr-2">Visitors:</span>
+              <span className="text-sm text-white/60">10</span>
+            </div>
+           
           </ul>
         </div>
 
@@ -79,6 +85,9 @@ export const Footer = () => {
             <FooterLink to="/clients">Clients</FooterLink>
             <FooterLink to="/branches">Branches</FooterLink>
             <FooterLink to="/faq">FAQs</FooterLink>
+            <li className="pt-4 modern-translate-wrapper">
+              <GoogleTranslate />
+            </li>
           </ul>
         </div>
 
@@ -127,6 +136,9 @@ Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059
               <a href="tel:+917503023096" className="font-semibold text-white hover:text-primary">
                 +91 7503023096
               </a>
+
+           
+
             </li>
           
 
@@ -141,7 +153,7 @@ Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059
           <p className="text-white/40 text-sm">
             © 2026 World Web Hub. All rights reserved.
           </p>
-          
+         
         </div>
 
         <div className="flex gap-6 text-sm text-white/40">
@@ -170,8 +182,8 @@ const SocialIcon = ({ Icon, href = "#" }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="w-10 h-10 rounded-xl bg-white/5 backdrop-blur-md flex items-center justify-center hover:bg-gradient-to-r from-blue-600 to-green-500 hover:text-white transition-all duration-300 hover:-translate-y-1"
+    className="w-8 h-8 shrink-0 rounded-lg bg-white/5 backdrop-blur-md flex items-center justify-center hover:bg-gradient-to-r from-blue-600 to-green-500 hover:text-white transition-all duration-300 hover:-translate-y-1"
   >
-    <Icon size={18} />
+    <Icon size={16} />
   </a>
 );

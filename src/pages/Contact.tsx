@@ -3,7 +3,6 @@ import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook } from "lucide-r
 import { useLocation } from "react-router-dom";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
-import { GoogleTranslate } from "../components/ui/GoogleTranslate";
 
 export const Contact = () => {
   const location = useLocation();
@@ -133,11 +132,6 @@ Message: ${formData.message}`;
             <MapCard title="Delhi Office" url="https://www.google.com/maps/embed?pb=!1m18!..." />
           </div>
         )}
-
-        {/* TRANSLATE */}
-        <div className="mt-16 text-center">
-          <GoogleTranslate id="translate" />
-        </div>
 
       </div>
     </div>
