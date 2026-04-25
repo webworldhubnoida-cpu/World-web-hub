@@ -48,6 +48,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
       viewport={{ once: true, amount: 0.01 }}
       variants={variants}
       className={className}
+      style={{ willChange: "opacity, transform" }}
     >
       {children}
     </motion.div>

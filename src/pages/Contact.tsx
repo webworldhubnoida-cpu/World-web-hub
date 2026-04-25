@@ -40,14 +40,14 @@ export const Contact = () => {
       from_email: formData.email,
       service_type: formData.service,
       message: formData.message,
-      to_email: "Info@webworldhub.in"
+      to_email: "Webworldhub@gmail.com"
     };
 
     emailjs.send(
-      'YOUR_SERVICE_ID', // Replace with your Service ID
-      'YOUR_TEMPLATE_ID', // Replace with your Template ID
+      'service_c6g8mym',
+      'template_7nh7hbc',
       templateParams,
-      'YOUR_PUBLIC_KEY' // Replace with your Public Key
+      'bd_XTReiuJzk2AE6e'
     )
     .then(() => {
       alert("Message sent successfully!");
@@ -139,8 +139,15 @@ export const Contact = () => {
                 <option>Select Service</option>
                 <option>Website Development</option>
                 <option>App Development</option>
+                <option>e-Commerce</option>
                 <option>SEO / Marketing</option>
-                <option>Custom Software</option>
+                <option>Graphic Design</option>
+                <option>Logo Design</option>
+                <option>Graphic Designing</option>
+                <option>B2C Portal</option>
+                <option>B2B Portal</option>
+                <option>Custom Software Development</option>
+
               </select>
 
               <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="Message..." className="input-style" disabled={isSubmitting} />
@@ -150,15 +157,7 @@ export const Contact = () => {
                 className="w-full py-4 flex justify-center items-center gap-2"
                 isLoading={isSubmitting}
               >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 size={18} className="animate-spin" /> Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send size={18} /> Send Message
-                  </>
-                )}
+                <Send size={18} /> Send Message
               </Button>
 
             </form>

@@ -39,14 +39,14 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       from_email: formData.email,
       service_type: formData.service,
       project_brief: formData.brief,
-      to_email: "Info@webworldhub.in"
+      to_email: "Webworldhub@gmail.com"
     };
 
     emailjs.send(
-      'YOUR_SERVICE_ID', // Replace with your Service ID
-      'YOUR_TEMPLATE_ID', // Replace with your Template ID
+      'service_c6g8mym',
+      'template_7nh7hbc',
       templateParams,
-      'YOUR_PUBLIC_KEY' // Replace with your Public Key
+      'bd_XTReiuJzk2AE6e'
     )
     .then(() => {
       alert("Consultation request sent successfully!");
@@ -177,15 +177,7 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                   className="w-full h-14 rounded-2xl text-lg gap-3 mt-4"
                   isLoading={isSubmitting}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 size={18} className="animate-spin" /> Sending...
-                    </>
-                  ) : (
-                    <>
-                      Confirm Booking <Send size={18} />
-                    </>
-                  )}
+                  Confirm Booking <Send size={18} />
                 </Button>
               </form>
             </div>

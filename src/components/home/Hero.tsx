@@ -103,6 +103,7 @@ export const Hero = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: "linear" }}
             className="absolute inset-0"
+            style={{ willChange: "opacity" }}
           >
             <img 
               src={slide.image} 
@@ -110,6 +111,8 @@ export const Hero = () => {
               alt="background"
               referrerPolicy="no-referrer"
               loading="eager"
+              width="1920"
+              height="1080"
               fetchPriority="high"
             />
             {/* Professional Overlay */}

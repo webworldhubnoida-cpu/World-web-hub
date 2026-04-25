@@ -1,5 +1,6 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import React from "react";
+import { Loader2 } from "lucide-react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline" | "ghost" | "white" | "premium" | "accent";
@@ -27,7 +28,7 @@ export const Button = ({
   isLoading,
   ...props
 }: ButtonProps) => {
-  const baseStyles = "inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed";
   
   const variants = {
     primary: "gradient-primary text-white shadow-lg shadow-primary/25 rounded-[16px] relative overflow-hidden",
@@ -40,25 +41,50 @@ export const Button = ({
   };
 
   const sizes = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg",
+    sm: "px-4 py-2 text-sm gap-2",
+    md: "px-6 py-3 text-base gap-2.5",
+    lg: "px-8 py-4 text-lg gap-3",
   };
 
   const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 
   const buttonContent = (
-    <>
-      <span className="relative z-10">{children}</span>
-      {(variant === "primary" || variant === "white" || variant === "premium" || variant === "accent" || variant === "secondary") && (
+    <div className="relative flex items-center justify-center gap-2">
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <motion.div
+            key="loader"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center justify-center"
+          >
+            <Loader2 className="w-5 h-5 animate-spin text-current" />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center justify-center gap-2"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      {(variant === "primary" || variant === "white" || variant === "premium" || variant === "accent" || variant === "secondary") && !isLoading && (
         <motion.div
           initial={{ x: "-100%", skewX: -15 }}
           whileHover={{ x: "100%" }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="absolute inset-0 bg-white/20 z-0"
+          className="absolute inset-0 bg-white/20 z-0 pointer-events-none"
         />
       )}
-    </>
+    </div>
   );
 
   if (href) {
@@ -79,10 +105,10 @@ export const Button = ({
 
   return (
     <motion.button
-      whileHover={!props.disabled && !isLoading ? { scale: 1.05, y: -2 } : {}}
-      whileTap={!props.disabled && !isLoading ? { scale: 0.95 } : {}}
+      whileHover={!isLoading ? { scale: 1.05, y: -2 } : {}}
+      whileTap={!isLoading ? { scale: 0.95 } : {}}
       className={classes}
-      disabled={props.disabled || isLoading}
+      disabled={isLoading}
       {...props}
     >
       {buttonContent}

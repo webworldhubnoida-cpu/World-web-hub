@@ -33,9 +33,26 @@
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      
+      // ✅ Prevent Tawk.to from changing tab title to "(1) New Message"
       Tawk_API.onLoad = function(){
         Tawk_API.hideWidget();
       };
+
+      // Robust title protection against third-party notification injections
+      (function() {
+        const pattern = /\(\d+\)/;
+        const originalSetter = Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'title').set;
+        Object.defineProperty(document, 'title', {
+          set: function(v) {
+            if (pattern.test(v) || v.toLowerCase().includes('new message')) {
+              return; 
+            }
+            originalSetter.call(document, v);
+          }
+        });
+      })();
+
       (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
         s1.async=true;

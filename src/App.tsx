@@ -3,17 +3,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Navbar } from "./components/ui/Navbar";
 import { Footer } from "./components/ui/Footer";
 import { ScrollProgressBar } from "./components/ui/ScrollProgressBar";
 import { BackToTop } from "./components/ui/BackToTop";
 import { ScrollToTop } from "./hooks/ScrollToTop";
-import { Loader } from "./components/ui/Loader";
 import { motion, AnimatePresence } from "motion/react";
 import { ModalProvider } from "./components/ui/ModalContext";
 import { FloatingButtons } from "./components/ui/FloatingButtons";
+import { PageTransition } from "./components/ui/PageTransition";
 
 // Lazy Pages
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
@@ -50,41 +50,31 @@ function AppContent() {
       
       <main className="flex-grow pt-[110px] lg:pt-[135px]">
         <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: "linear" }}
-          >
-            <Suspense fallback={<Loader />}>
-              <Routes location={location}>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/service/:id" element={<ServiceDetail />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/team" element={<Team />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/videos" element={<Videos />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/careers" element={<Careers />} />
-                <Route path="/tech-stack" element={<TechStack />} />
-                <Route path="/certificates" element={<Certificates />} />
-                <Route path="/clients" element={<Clients />} />
-                <Route path="/branches" element={<Branches />} />
-                <Route path="/branch/:id" element={<BranchDetail />} />
-                <Route path="/associates" element={<Associates />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-conditions" element={<TermsConditions />} />
-                <Route path="/refund-policy" element={<RefundPolicy />} />
-                <Route path="/WorkProcess" element={<WorkProcess />} />
-              </Routes>
-            </Suspense>
-          </motion.div>
+          <Routes location={location}>
+            <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+            <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+            <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+            <Route path="/service/:id" element={<PageTransition><ServiceDetail /></PageTransition>} />
+            <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+            <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/team" element={<PageTransition><Team /></PageTransition>} />
+            <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+            <Route path="/pricing" element={<PageTransition><Pricing /></PageTransition>} />
+            <Route path="/videos" element={<PageTransition><Videos /></PageTransition>} />
+            <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+            <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+            <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
+            <Route path="/tech-stack" element={<PageTransition><TechStack /></PageTransition>} />
+            <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
+            <Route path="/clients" element={<PageTransition><Clients /></PageTransition>} />
+            <Route path="/branches" element={<PageTransition><Branches /></PageTransition>} />
+            <Route path="/branch/:id" element={<PageTransition><BranchDetail /></PageTransition>} />
+            <Route path="/associates" element={<PageTransition><Associates /></PageTransition>} />
+            <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+            <Route path="/terms-conditions" element={<PageTransition><TermsConditions /></PageTransition>} />
+            <Route path="/refund-policy" element={<PageTransition><RefundPolicy /></PageTransition>} />
+            <Route path="/WorkProcess" element={<PageTransition><WorkProcess /></PageTransition>} />
+          </Routes>
         </AnimatePresence>
       </main>
 

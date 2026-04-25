@@ -59,6 +59,8 @@ export const Navbar = () => {
             <img 
               src="/gallery/navbarlogo.png" 
               alt="World Web Hub" 
+              width="140"
+              height="140"
               className="h-35 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
