@@ -6,7 +6,7 @@ import { Button } from "../components/ui/Button";
 
 export const Contact = () => {
   const location = useLocation();
-  const isContactPage = location.pathname === "/contact";
+  const isContactPage = location.pathname.replace(/\/$/, "") === "/contact";
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -141,24 +141,24 @@ export const Contact = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <MapCard 
                 title="Web World Hub Aligarh" 
-                url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3527.2424844621355!2d78.0829044755139!3d27.92949527605553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a52b6591e75d%3A0xbfaad3289a529a98!2sWeb%20World%20Hub%20Aligarh!5e0!3m2!1sen!2sin!4v1714030000000!5m2!1sen!2sin" 
+                url="https://www.google.com/maps?q=Web+World+Hub+Aligarh&output=embed" 
               />
               <MapCard 
                 title="Web World Hub Jamalpur" 
-                url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3527.426315512051!2d78.07550267551364!3d27.923902776058694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974a58167364417%3A0x78d52d481b951485!2sWeb%20World%20Hub%20Jamalpur!5e0!3m2!1sen!2sin!4v1714030000001!5m2!1sen!2sin" 
+                url="https://www.google.com/maps?q=Web+World+Hub+Jamalpur+Aligarh&output=embed" 
               />
               <MapCard 
                 title="Web World Hub Head Office" 
-                url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3505.414732047808!2d77.0592384!3d28.5272191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d191244e2621b%3A0xb63e89bf61ca8770!2sWeb%20World%20Hub!5e0!3m2!1sen!2sin!4v1714030000002!5m2!1sen!2sin" 
+                url="https://www.google.com/maps?q=Web+World+Hub+Uttam+Nagar+Delhi&output=embed" 
               />
               <MapCard 
                 title="Web World Hub Mohaan Unnao" 
-                url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d56965.86751261352!2d80.6356708783203!3d26.772253499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c03cfc5583e33%3A0xcf505d80c6637888!2sWeb%20World%20Hub%20Mohaan%20Unnao!5e0!3m2!1sen!2sin!4v1714030000003!5m2!1sen!2sin" 
+                url="https://www.google.com/maps?q=Web+World+Hub+Mohaan+Unnao&output=embed" 
               />
               <div className="md:col-span-2 md:w-1/2 md:mx-auto">
                 <MapCard 
                   title="Web World Hub Kanpur" 
-                  url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3572.3364230867056!2d80.38436717546055!3d26.432226776936355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4136b5e564f3%3A0x39b345c0d53ef088!2sWeb%20World%20Hub%20Kanpur!5e0!3m2!1sen!2sin!4v1714030000004!5m2!1sen!2sin" 
+                  url="https://www.google.com/maps?q=Web+World+Hub+Kanpur&output=embed" 
                 />
               </div>
             </div>
