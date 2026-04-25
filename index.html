@@ -42,15 +42,22 @@
       // Robust title protection against third-party notification injections
       (function() {
         const pattern = /\(\d+\)/;
-        const originalSetter = Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'title').set;
-        Object.defineProperty(document, 'title', {
-          set: function(v) {
-            if (pattern.test(v) || v.toLowerCase().includes('new message')) {
-              return; 
-            }
-            originalSetter.call(document, v);
-          }
-        });
+        const targetProto = window.HTMLDocument ? HTMLDocument.prototype : Document.prototype;
+        const descriptor = Object.getOwnPropertyDescriptor(targetProto, 'title') || 
+                           Object.getOwnPropertyDescriptor(Document.prototype, 'title');
+        
+        if (descriptor && descriptor.set) {
+          const originalSetter = descriptor.set;
+          Object.defineProperty(document, 'title', {
+            set: function(v) {
+              if (pattern.test(v) || (v && v.toLowerCase().includes('new message'))) {
+                return; 
+              }
+              originalSetter.call(document, v);
+            },
+            configurable: true
+          });
+        }
       })();
 
       (function(){
