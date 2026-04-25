@@ -148,7 +148,7 @@ export const Contact = () => {
               <Button 
                 type="submit" 
                 className="w-full py-4 flex justify-center items-center gap-2"
-                disabled={isSubmitting}
+                isLoading={isSubmitting}
               >
                 {isSubmitting ? (
                   <>

@@ -12,6 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rel?: string;
   download?: boolean | string;
   type?: "button" | "submit" | "reset";
+  isLoading?: boolean;
 }
 
 export const Button = ({
@@ -23,6 +24,7 @@ export const Button = ({
   target,
   rel,
   download,
+  isLoading,
   ...props
 }: ButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center font-bold tracking-tight transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
@@ -77,9 +79,10 @@ export const Button = ({
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05, y: -2 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={!props.disabled && !isLoading ? { scale: 1.05, y: -2 } : {}}
+      whileTap={!props.disabled && !isLoading ? { scale: 0.95 } : {}}
       className={classes}
+      disabled={props.disabled || isLoading}
       {...props}
     >
       {buttonContent}

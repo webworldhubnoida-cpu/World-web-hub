@@ -175,7 +175,7 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                 <Button 
                   type="submit" 
                   className="w-full h-14 rounded-2xl text-lg gap-3 mt-4"
-                  disabled={isSubmitting}
+                  isLoading={isSubmitting}
                 >
                   {isSubmitting ? (
                     <>
