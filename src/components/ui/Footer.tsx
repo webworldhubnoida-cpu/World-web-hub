@@ -155,6 +155,17 @@ Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059
               © 2015 World Web Hub. All rights reserved.
             </p>
           </div>
+          <div className="text-white/30 text-[10px] md:text-xs font-medium tracking-widest uppercase flex items-center gap-2">
+          <span>Design & Development By</span>
+          <a 
+            href="https://www.webworldhub.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white/50 hover:text-primary transition-colors font-black"
+          >
+            Web World Hub
+          </a>
+        </div>
 
           <div className="flex gap-6 text-sm text-white/40">
             <Link to="/WorkProcess" className="hover:text-white transition">Work Process</Link>
@@ -164,17 +175,7 @@ Gurudwara Rd, Mohan Garden, Block F, Zaildar Enclave, Uttam Nagar, Delhi, 110059
           </div>
         </div>
 
-        <div className="text-white/30 text-[10px] md:text-xs font-medium tracking-widest uppercase flex items-center gap-2">
-          <span>Design & Development By</span>
-          <a 
-            href="https://www.webworldhub.co.in/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-white/50 hover:text-primary transition-colors font-black"
-          >
-            Web World Hub
-          </a>
-        </div>
+        
       </div>
     </footer>
   );

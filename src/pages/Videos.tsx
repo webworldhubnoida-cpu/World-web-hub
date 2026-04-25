@@ -12,6 +12,16 @@ const videos = [
     id: "EeSEqYAXRdo",
     title: "Website Designing & Development",
     description: "B2B Portal Designing and Application Development"
+  },
+  {
+    id: "kLg1rfThJHg",
+    title: "Work Process",
+    description: "Watch Our Work Process"
+  },
+  {
+    id: "Vzu96S6aA1k",
+    title: "Work Process",
+    description: "Watch Our Work Process"
   }
 ];
 

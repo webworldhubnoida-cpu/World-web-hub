@@ -38,6 +38,7 @@ const BranchDetail = lazy(() => import("./pages/BranchDetail").then(module => ({
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy").then(module => ({ default: module.PrivacyPolicy })));
 const TermsConditions = lazy(() => import("./pages/TermsConditions").then(module => ({ default: module.TermsConditions })));
 const RefundPolicy = lazy(() => import("./pages/RefundPolicy").then(module => ({ default: module.RefundPolicy })));
+const WorkProcess = lazy(() => import("./pages/WorkProcess").then(module => ({ default: module.default })));
 
 function AppContent() {
   const location = useLocation();
@@ -80,6 +81,7 @@ function AppContent() {
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-conditions" element={<TermsConditions />} />
                 <Route path="/refund-policy" element={<RefundPolicy />} />
+                <Route path="/WorkProcess" element={<WorkProcess />} />
               </Routes>
             </Suspense>
           </motion.div>
