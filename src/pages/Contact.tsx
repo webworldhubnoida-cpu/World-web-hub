@@ -29,14 +29,23 @@ export const Contact = () => {
       return;
     }
 
-    const text = `*New Inquiry from Web World Hub*%0A%0A
-Name: ${formData.fullName}
-Phone: ${formData.phone}
-Email: ${formData.email || "N/A"}
-Service: ${formData.service}
-Message: ${formData.message}`;
+    const text = `*New Inquiry from Web World Hub*%0A%0A` +
+      `*Name:* ${formData.fullName}%0A` +
+      `*Phone:* ${formData.phone}%0A` +
+      `*Email:* ${formData.email || "N/A"}%0A` +
+      `*Service:* ${formData.service}%0A` +
+      `*Message:* ${formData.message}`;
 
     window.open(`https://wa.me/919971001036?text=${text}`, "_blank");
+    
+    // Clear form
+    setFormData({
+      fullName: "",
+      phone: "",
+      email: "",
+      service: "Select Service",
+      message: ""
+    });
   };
 
   return (

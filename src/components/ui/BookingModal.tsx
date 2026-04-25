@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, Calendar, User, Mail, MessageSquare } from "lucide-react";
 import { Button } from "./Button";
@@ -9,6 +9,44 @@ interface BookingModalProps {
 }
 
 export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    service: "Web Development",
+    brief: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.fullName || !formData.brief) {
+      alert("Please fill in your name and project brief.");
+      return;
+    }
+
+    const message = `*New Consultation Booking from Web World Hub*%0A%0A` +
+      `*Name:* ${formData.fullName}%0A` +
+      `*Email:* ${formData.email || "N/A"}%0A` +
+      `*Service:* ${formData.service}%0A` +
+      `*Brief:* ${formData.brief}`;
+
+    window.open(`https://wa.me/919971001036?text=${message}`, "_blank");
+    
+    // Reset form and close
+    setFormData({
+      fullName: "",
+      email: "",
+      service: "Web Development",
+      brief: ""
+    });
+    onClose();
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -43,15 +81,19 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                 </button>
               </div>
 
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-text-dark/40 ml-2">Full Name</label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 text-text-dark/20" size={18} />
                     <input
                       type="text"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
                       placeholder="John Doe"
                       className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium"
+                      required
                     />
                   </div>
                 </div>
@@ -62,6 +104,9 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-text-dark/20" size={18} />
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="john@example.com"
                       className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium"
                     />
@@ -72,7 +117,12 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                   <label className="text-[10px] font-black uppercase tracking-widest text-text-dark/40 ml-2">Preferred Service</label>
                   <div className="relative">
                     <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-text-dark/20" size={18} />
-                    <select className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium appearance-none">
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium appearance-none"
+                    >
                       <option>Web Development</option>
                       <option>Mobile App Development</option>
                       <option>Digital Marketing</option>
@@ -87,17 +137,18 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                   <div className="relative">
                     <MessageSquare className="absolute left-4 top-6 text-text-dark/20" size={18} />
                     <textarea
+                      name="brief"
+                      value={formData.brief}
+                      onChange={handleChange}
                       rows={4}
                       placeholder="Tell us about your project..."
                       className="w-full bg-bg-light border-none rounded-2xl pl-12 pr-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-medium resize-none"
+                      required
                     ></textarea>
                   </div>
                 </div>
 
-                <Button className="w-full h-14 rounded-2xl text-lg gap-3 mt-4" onClick={() => {
-                  alert("Thank you! Our team will contact you shortly.");
-                  onClose();
-                }}>
+                <Button type="submit" className="w-full h-14 rounded-2xl text-lg gap-3 mt-4">
                   Confirm Booking <Send size={18} />
                 </Button>
               </form>
