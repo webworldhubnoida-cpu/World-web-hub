@@ -14,7 +14,7 @@ const navLinks = [
   { name: "Video", path: "/videos" },
   { name: "Gallery", path: "/gallery" },
   { name: "Pricing", path: "/pricing" },
-  { name: "Branches", path: "/branches" },
+  { name: "Branches", path: "/branches" }, //hello
   { name: "Blog", path: "/blog" },
   { name: "Contact Us", path: "/contact" },
 ];
