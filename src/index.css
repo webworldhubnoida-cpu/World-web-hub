@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1E3A8A;
+  --color-secondary: #16A34A;
+  --color-accent: #DC2626;
+  --color-highlight: #C9A34E;
+  --color-bg-dark: #000000;
+  --color-bg-light: #FFFFFF;
+  --color-neutral-gray: #2F2F2F;
+  --color-neutral-silver: #C0C0C0;
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-text-dark: #0F172A;
+  
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-light text-slate-900 font-sans selection:bg-primary/30 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-[12px] border border-white/40 shadow-[0_20px_40px_rgba(30,58,138,0.05)];
+  }
+  
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-[12px] border border-white/10 shadow-xl;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, #1E3A8A, #16A34A);
+  }
+
+  .gradient-dark-hero {
+    background: linear-gradient(135deg, #000000, #1E3A8A);
+  }
+
+  .gradient-premium {
+    background: linear-gradient(135deg, #C9A34E, #FFD700);
+  }
+
+  .gradient-subtle-bg {
+    background: linear-gradient(180deg, #0F172A, #1E293B);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #1E3A8A, #DC2626);
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #1E3A8A, #16A34A);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1E3A8A, #16A34A);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(30, 58, 138, 0.3);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px rgba(22, 163, 74, 0.3);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 25px rgba(30, 58, 138, 0.5);
+    transform: scale(1.02);
+  }
+
+  .border-gradient {
+    border: 1px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, #1E3A8A, #16A34A);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .hero-tag {
+    @apply inline-block px-3.5 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider mb-5;
+  }
+
+  .card-p { @apply border-b-4 border-primary; }
+  .card-s { @apply border-b-4 border-secondary; }
+  .card-a { @apply border-b-4 border-accent; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee-slow {
+    animation: marquee 150s linear infinite;
+  }
+
+  /* Modern Google Translate Overrides */
+  .modern-translate-wrapper {
+    @apply w-full max-w-[240px];
+  }
+
+  /* Hide the default Google Translate UI artifacts */
+  .goog-te-banner-frame,
+  .goog-te-balloon-frame,
+  .goog-te-gadget-icon,
+  .goog-te-menu-value span:nth-child(3),
+  .goog-te-menu-value span:nth-child(5),
+  .goog-te-gadget > span {
+    display: none !important;
+  }
+
+  .goog-te-gadget {
+    color: transparent !important;
+    font-size: 0 !important;
+  }
+
+  /* Make the select element invisible but clickable over our custom UI */
+  #google_translate_element select {
+    @apply opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10;
+  }
+
+  .goog-te-gadget .goog-te-combo {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide the top bar that Google injects */
+  body {
+    top: 0 !important;
+  }
+
+  /* Hide Google Translate top bar and banners */
+  .goog-te-banner-frame,
+  .goog-te-banner,
+  .goog-te-balloon-frame {
+    display: none !important;
+  }
+
+  /* Show our specific translate element and the menu frame */
+  .modern-translate-wrapper .skiptranslate,
+  iframe.goog-te-menu-frame.skiptranslate {
+    display: block !important;
+  }
+
+  /* Specifically hide the top horizontal skip-translate bar if it appears */
+  body > .skiptranslate {
+    display: none !important;
+  }
+
+  /* Style for the iframe menu that pops up */
+  iframe.goog-te-menu-frame {
+    border-radius: 0.75rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .pause-on-hover:hover .animate-marquee,
+  .pause-on-hover:hover .animate-marquee-slow {
+    animation-play-state: paused;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/40;
+  }
+}
+
+.goog-te-menu-value {
+  margin: 0 !important;
+  color: inherit !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.input-style {
+  @apply w-full border border-slate-200 rounded-xl px-5 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition;
+}

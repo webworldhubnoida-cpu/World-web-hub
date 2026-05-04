@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/gallery/favicon.png" />
+
+    <title>Web World Hub</title>
+
+    <!-- ✅ Google Translate (ONLY ONCE) -->
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi",
+            autoDisplay: false
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- React App -->
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      
+      // ✅ Prevent Tawk.to from changing tab title to "(1) New Message"
+      Tawk_API.onLoad = function(){
+        Tawk_API.hideWidget();
+      };
+
+      // Robust title protection against third-party notification injections
+      (function() {
+        const pattern = /\(\d+\)/;
+        const targetProto = window.HTMLDocument ? HTMLDocument.prototype : Document.prototype;
+        const descriptor = Object.getOwnPropertyDescriptor(targetProto, 'title') || 
+                           Object.getOwnPropertyDescriptor(Document.prototype, 'title');
+        
+        if (descriptor && descriptor.set) {
+          const originalSetter = descriptor.set;
+          Object.defineProperty(document, 'title', {
+            set: function(v) {
+              if (pattern.test(v) || (v && v.toLowerCase().includes('new message'))) {
+                return; 
+              }
+              originalSetter.call(document, v);
+            },
+            configurable: true
+          });
+        }
+      })();
+
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69eb6f4b4c6bb51c3672896f/1jmvqlg1k';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>
